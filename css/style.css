@@ -1,0 +1,50 @@
+/* ==========================================================================
+   1. HERO & LANDING LAYOUT (Purana Base Code)
+   ========================================================================== */
+#hero {
+    /* Agar images folder mein hero-bg.jpg nahn hai to ye gradient chalega */
+    background-image: linear-gradient(135deg, #0a1f44 0%, #1a3a5b 100%);
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+}
+
+.hero-overlay {
+    background: rgba(0, 20, 40, 0.65);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ==========================================================================
+   2. WEEK 3 PREMIUM GALLERY & CARDS EFFECTS
+   ========================================================================== */
+
+/* Cards rounded corners style */
+.gallery-card {
+    border-radius: 12px !important;
+    border: 1px solid #eef2f5 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Dimension Fix (Symmetry alignment) */
+.gallery-img {
+    height: 220px;
+    object-fit: cover; /* Is se sari images perfect auto-crop hokar clean alignment me ayengi */
+    width: 100%;
+}
+
+/* Smooth zoom-in scale effect */
+.img-hover {
+    transition: transform 0.4s ease-in-out;
+}
+
+.img-hover:hover {
+    transform: scale(1.08);
+}
