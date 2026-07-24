@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 2. CONTACT FORM SUBMISSION VALIDATION (NEW)
+    // 2. CONTACT FORM SUBMISSION VALIDATION
     // ==========================================
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
@@ -93,4 +93,67 @@ document.addEventListener("DOMContentLoaded", function () {
             contactForm.reset();
         });
     }
+
+    // ==========================================
+    // 3. WEEK 4: STATS COUNTER ON SCROLL
+    // ==========================================
+    const counters = document.querySelectorAll('.counter');
+    const statsSection = document.getElementById('stats-section');
+    let animated = false;
+
+    function startCounting() {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 Seconds duration
+            const increment = target / (duration / 16);
+
+            let current = 0;
+            const updateCount = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    startCounting();
+                    animated = true;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+    }
+
+    // ==========================================
+    // 4. WEEK 4: BACK TO TOP BUTTON
+    // ==========================================
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('d-none');
+            } else {
+                backToTopBtn.classList.add('d-none');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
 });
