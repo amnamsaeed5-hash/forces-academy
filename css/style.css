@@ -47,4 +47,63 @@
 
 .img-hover:hover {
     transform: scale(1.08);
+}/* ================= WEEK 6: DARK MODE STYLES ================= */
+body.dark-theme {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode nav and sections */
+body.dark-theme .navbar {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-theme .nav-link {
+    color: #ffffff !important;
+}
+
+body.dark-theme .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-theme .bg-white {
+    background-color: #242424 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .text-muted,
+body.dark-theme .text-secondary {
+    color: #b0b0b0 !important;
+}
+
+body.dark-theme h2, 
+body.dark-theme h5 {
+    color: #ffffff !important;
+}
+
+/* Dark Mode Toggle Button */
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* ================= WEEK 6: ANIMATIONS ================= */
+.animate-fade-in {
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

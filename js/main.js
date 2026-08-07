@@ -157,3 +157,73 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+// Dark Mode Toggle Logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+if (themeToggleBtn && themeIcon) {
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+
+        if (document.body.classList.contains('dark-theme')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    });
+}
+
+// Back to Top Button Logic
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.remove('d-none');
+        } else {
+            backToTopBtn.classList.add('d-none');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Stats Counter Logic (Week 4)
+const counters = document.querySelectorAll('.counter');
+const statsSection = document.getElementById('stats-section');
+let started = false;
+
+if (statsSection && counters.length > 0) {
+    window.addEventListener('scroll', () => {
+        const sectionPos = statsSection.getBoundingClientRect().top;
+        const screenPos = window.innerHeight;
+
+        if (sectionPos < screenPos && !started) {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 100;
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCount();
+            });
+            started = true;
+        }
+    });
+}
