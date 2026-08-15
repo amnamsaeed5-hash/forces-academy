@@ -227,3 +227,25 @@ if (statsSection && counters.length > 0) {
         }
     });
 }
+// EmailJS Admission Form Integration
+const admissionForm = document.getElementById('admission-form');
+
+if (admissionForm) {
+    admissionForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const submitBtn = admissionForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'Sending...';
+
+        emailjs.sendForm('service_054rzsh', 'template_dvpo7vy', this)
+            .then(function() {
+                alert('Enquiry Submitted Successfully!');
+                admissionForm.reset();
+                submitBtn.innerText = originalBtnText;
+            }, function(error) {
+                alert('Failed to send enquiry. Error: ' + JSON.stringify(error));
+                submitBtn.innerText = originalBtnText;
+            });
+    });
+}
