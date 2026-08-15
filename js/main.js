@@ -205,4 +205,61 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+<<<<<<< HEAD
 });
+=======
+// Stats Counter Logic (Week 4)
+const counters = document.querySelectorAll('.counter');
+const statsSection = document.getElementById('stats-section');
+let started = false;
+
+if (statsSection && counters.length > 0) {
+    window.addEventListener('scroll', () => {
+        const sectionPos = statsSection.getBoundingClientRect().top;
+        const screenPos = window.innerHeight;
+
+        if (sectionPos < screenPos && !started) {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 100;
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCount();
+            });
+            started = true;
+        }
+    });
+}
+// EmailJS Admission Form Integration
+const admissionForm = document.getElementById('admission-form');
+
+if (admissionForm) {
+    admissionForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const submitBtn = admissionForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'Sending...';
+
+        emailjs.sendForm('service_054rzsh', 'template_dvpo7vy', this)
+            .then(function() {
+                alert('Enquiry Submitted Successfully!');
+                admissionForm.reset();
+                submitBtn.innerText = originalBtnText;
+            }, function(error) {
+                alert('Failed to send enquiry. Error: ' + JSON.stringify(error));
+                submitBtn.innerText = originalBtnText;
+            });
+    });
+}
+>>>>>>> f3df67e (Connect Student Portal button to live LMS URL)
