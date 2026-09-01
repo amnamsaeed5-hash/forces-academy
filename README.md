@@ -58,7 +58,7 @@
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-![Home Page](Home .png)
+![HomePage](Home.png)
 
 ### ℹ️ About Page
 ![About Page](About.png)
