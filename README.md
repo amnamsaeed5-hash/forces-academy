@@ -1,47 +1,44 @@
-# Forces Academy Faisalabad — Official Website
+# 🎓 Forces Academy Faisalabad — Web Application
 
-A fully responsive, modern multi-page web application developed for Forces Academy Faisalabad as part of the Code Saviours Internship Program.
+A modern, fully responsive multi-page web application designed for Forces Academy Faisalabad, built during the Code Saviours Internship 2026.
 
-🌐 **Live Website Link:** https://amnamsaeed5-hash.github.io/forces-academy/  
-📂 **Repository Link:** https://github.com/amnamsaeed5-hash/forces-academy
+🔗 **Live Website Demo:** [https://amnamsaeed5-hash.github.io/forces-academy](https://amnamsaeed5-hash.github.io/forces-academy)
 
 ---
 
-## 📌 Features
+## 📸 Screenshots
 
-- **Multi-page Architecture:** Includes Home, About, Courses, Admissions, Results, Gallery, and Contact pages.
-- **Persistent Dark/Light Mode:** Theme toggle with `localStorage` persistence across all pages.
-- **EmailJS Integration:** Automated online admission enquiry form handling.
-- **Interactive Stats Counter:** Animated numerical counter powered by JavaScript `Intersection Observer API`.
-- **Dynamic Testimonials Slider:** Fully responsive carousel built with Bootstrap 5.
-- **Image Gallery:** Filterable media gallery with smooth lightboxes integrated via `GLightbox`.
-- **Strict Form Validation:** Regex-based real-time contact form validation for user input accuracy.
-- **Direct LMS Integration:** Direct access button connecting to live Student Portal.
+| Home Page | Courses Page |
+|---|---|
+| ![Home](images/home.png) | ![Courses](images/about.png) |
+
+| Admissions & Form | Contact Us |
+|---|---|
+| ![Admissions](images/result.png) | ![Contact](images/home.png) |
 
 ---
 
 ## 🛠️ Tech Stack Used
 
-- **HTML5** — Semantic page structure
-- **CSS3 & Bootstrap 5** — Responsive grid layouts and custom modern styling
-- **Vanilla JavaScript (ES6+)** — DOM manipulation, Intersection Observer API, and custom event listeners
-- **EmailJS API** — Live email notification service
-- **GLightbox Library** — Lightbox image previewing
-- **FontAwesome** — Modern UI icons
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+- **CSS Framework:** Bootstrap 5
+- **Integrations:** EmailJS API (For client-side form submissions)
+- **Deployment & Version Control:** Git, GitHub, GitHub Pages
 
 ---
 
-## 📱 Page Testing & Responsiveness
+## ✨ Key Features
 
-The website was rigorously tested across multiple viewports and major modern browsers (Google Chrome, Mozilla Firefox, Microsoft Edge):
-- **Mobile Devices:** 375px (iPhone SE/12 Pro)
-- **Tablets:** 768px (iPad Air/Mini)
-- **Desktops:** 1440px+ (HD / Full HD displays)
+- **Multi-Page Navigation:** Complete layout spanning Home, About, Courses, Admissions, Results, Gallery, and Contact pages.
+- **Fully Responsive Design:** Mobile-first approach configured using Bootstrap 5 grid layout.
+- **Dark & Light Mode Toggle:** Dynamic theme switcher using JavaScript with `localStorage` state persistence.
+- **Real-Time Admission Form:** Integrated with EmailJS for serverless email notifications.
+- **Interactive UI Elements:** Scroll-triggered counter animations and LMS portal redirection links.
 
 ---
 
-## 👩‍💻 Built By
+## 🚀 How to Run Locally
 
-- **Developer:** Amna Saeed
-- **Track:** Frontend Development Track
-- **Batch:** Code Saviours SI-26 | 2026
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/amnamsaeed5-hash/forces-academy.git](https://github.com/amnamsaeed5-hash/forces-academy.git)
