@@ -24,26 +24,6 @@
 
 ---
 
-## 📸 Screenshots Showcase
-
-<div align="center">
-
-| **Home Page (Banner View)** | **Home Page (Overview)** |
-| :---: | :---: |
-| <img src="Home%20.png" width="450" alt="Home Page Banner"> | <img src="Home.png" width="450" alt="Home Page Overview"> |
-
-| **About Academy Page** | **Courses Offered Page** |
-| :---: | :---: |
-| <img src="About.png" width="450" alt="About Page"> | <img src="Courses.png" width="450" alt="Courses Page"> |
-
-| **Admissions & Form** | **Results Grid** |
-| :---: | :---: |
-| <img src="Admissions.png" width="450" alt="Admissions Page"> | <img src="Result.png" width="450" alt="Results Page"> |
-
-</div>
-
----
-
 ## ✨ Key Features
 
 * **Multi-Page Navigation:** Complete layout spanning Home, About, Courses, Admissions, Results, Gallery, and Contact pages.
@@ -73,7 +53,5 @@
 ## 🚀 How to Run Locally
 
 1. Repository ko clone karein:
-   ```bash
-   git clone [https://github.com/amnamsaeed5-hash/forces-academy.git](https://github.com/amnamsaeed5-hash/forces-academy.git)
    ```bash
    git clone [https://github.com/amnamsaeed5-hash/forces-academy.git](https://github.com/amnamsaeed5-hash/forces-academy.git)
