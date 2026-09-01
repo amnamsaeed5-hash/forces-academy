@@ -55,3 +55,19 @@
 1. Repository ko clone karein:
    ```bash
    git clone [https://github.com/amnamsaeed5-hash/forces-academy.git](https://github.com/amnamsaeed5-hash/forces-academy.git)
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](Home.png)
+
+### ℹ️ About Page
+![About Page](About.png)
+
+### 📚 Courses Page
+![Courses Page](Courses.png)
+
+### 🎓 Admissions Page
+![Admissions Page](Admissions.png)
+
+### 📊 Results Page
+![Results Page](Result.png)
