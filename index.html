@@ -1,267 +1,261 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forces Academy Faisalabad</title>
 
-    <title>Forces Academy Faisalabad</title>
+<!-- =====================================================
+     BOOTSTRAP 5
+====================================================== -->
 
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
-    <!-- =====================================================
-         BOOTSTRAP 5
-    ====================================================== -->
+<!-- =====================================================
+     FONT AWESOME
+====================================================== -->
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+>
 
+<!-- =====================================================
+     CUSTOM CSS
+====================================================== -->
 
-    <!-- =====================================================
-         FONT AWESOME
-    ====================================================== -->
+<link rel="stylesheet" href="css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    >
+<!-- =====================================================
+     APPLY SAVED THEME BEFORE PAGE LOAD
+====================================================== -->
 
+<script>
+    (function () {
 
-    <!-- =====================================================
-         CUSTOM CSS
-    ====================================================== -->
+        const savedTheme = localStorage.getItem("theme");
 
-    <link rel="stylesheet" href="css/style.css">
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark-mode-loading");
+        }
+
+    })();
+</script>
+```
 
 </head>
 
-
 <body>
-
 
 <!-- =========================================================
      NAVBAR
 ========================================================= -->
 
-<nav
-    class="navbar navbar-expand-lg sticky-top"
-    id="mainNav"
->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
 
-    <div class="container">
+```
+<div class="container">
 
+    <!-- Logo -->
 
-        <!-- LOGO -->
+    <a
+        class="navbar-brand fw-bold"
+        href="index.html"
+    >
 
-        <a
-            class="navbar-brand fw-bold"
-            href="index.html"
-        >
+        <i class="fas fa-shield-halved me-2"></i>
 
-            <i class="fas fa-shield-halved me-2"></i>
+        Forces Academy
 
-            Forces Academy
+    </a>
 
-        </a>
 
+    <!-- Mobile Button -->
 
-        <!-- MOBILE MENU BUTTON -->
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
 
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navMenu"
-            aria-controls="navMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
+        <span class="navbar-toggler-icon"></span>
 
-            <span class="navbar-toggler-icon"></span>
+    </button>
 
-        </button>
 
+    <!-- Navigation -->
 
-        <!-- NAVIGATION -->
+    <div
+        class="collapse navbar-collapse"
+        id="navMenu"
+    >
 
-        <div
-            class="collapse navbar-collapse"
-            id="navMenu"
-        >
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
 
-            <ul
-                class="navbar-nav ms-auto align-items-lg-center gap-lg-2"
-            >
 
+            <!-- Home -->
 
-                <!-- HOME -->
+            <li class="nav-item">
 
-                <li class="nav-item">
+                <a
+                    class="nav-link active"
+                    href="index.html"
+                >
+                    Home
+                </a>
 
-                    <a
-                        class="nav-link active"
-                        href="index.html"
-                    >
+            </li>
 
-                        Home
 
-                    </a>
+            <!-- About -->
 
-                </li>
+            <li class="nav-item">
 
+                <a
+                    class="nav-link"
+                    href="about.html"
+                >
+                    About
+                </a>
 
-                <!-- ABOUT -->
+            </li>
 
-                <li class="nav-item">
 
-                    <a
-                        class="nav-link"
-                        href="about.html"
-                    >
+            <!-- Courses -->
 
-                        About
+            <li class="nav-item">
 
-                    </a>
+                <a
+                    class="nav-link"
+                    href="courses.html"
+                >
+                    Courses
+                </a>
 
-                </li>
+            </li>
 
 
-                <!-- COURSES -->
+            <!-- Admissions -->
 
-                <li class="nav-item">
+            <li class="nav-item">
 
-                    <a
-                        class="nav-link"
-                        href="courses.html"
-                    >
+                <a
+                    class="nav-link"
+                    href="admissions.html"
+                >
+                    Admissions
+                </a>
 
-                        Courses
+            </li>
 
-                    </a>
 
-                </li>
+            <!-- Results -->
 
+            <li class="nav-item">
 
-                <!-- ADMISSIONS -->
+                <a
+                    class="nav-link"
+                    href="results.html"
+                >
+                    Results
+                </a>
 
-                <li class="nav-item">
+            </li>
 
-                    <a
-                        class="nav-link"
-                        href="admissions.html"
-                    >
 
-                        Admissions
+            <!-- Gallery -->
 
-                    </a>
+            <li class="nav-item">
 
-                </li>
+                <a
+                    class="nav-link"
+                    href="gallery.html"
+                >
+                    Gallery
+                </a>
 
+            </li>
 
-                <!-- RESULTS -->
 
-                <li class="nav-item">
+            <!-- Contact -->
 
-                    <a
-                        class="nav-link"
-                        href="results.html"
-                    >
+            <li class="nav-item">
 
-                        Results
+                <a
+                    class="nav-link"
+                    href="contact.html"
+                >
+                    Contact
+                </a>
 
-                    </a>
+            </li>
 
-                </li>
 
+            <!-- =================================================
+                 DARK / LIGHT MODE
+            ================================================== -->
 
-                <!-- GALLERY -->
+            <li class="nav-item">
 
-                <li class="nav-item">
+                <button
+                    id="theme-toggle"
+                    type="button"
+                    class="btn btn-sm theme-toggle-btn btn-outline-light ms-lg-2"
+                    title="Toggle Dark/Light Mode"
+                    aria-label="Toggle Dark/Light Mode"
+                >
 
-                    <a
-                        class="nav-link"
-                        href="gallery.html"
-                    >
+                    <i
+                        id="theme-icon"
+                        class="fas fa-moon"
+                    ></i>
 
-                        Gallery
+                </button>
 
-                    </a>
+            </li>
 
-                </li>
 
+            <!-- =================================================
+                 STUDENT PORTAL
+            ================================================== -->
 
-                <!-- CONTACT -->
+            <li class="nav-item">
 
-                <li class="nav-item">
+                <a
+                    class="btn btn-warning fw-semibold px-3 ms-lg-2"
+                    href="https://forces-academy-lms.infinityfreeapp.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
 
-                    <a
-                        class="nav-link"
-                        href="contact.html"
-                    >
+                    <i class="fas fa-user-graduate me-1"></i>
 
-                        Contact
+                    Student Portal
 
-                    </a>
+                </a>
 
-                </li>
+            </li>
 
-
-                <!-- =================================================
-                     DARK / LIGHT MODE
-                ================================================== -->
-
-                <li class="nav-item">
-
-                    <button
-                        id="theme-toggle"
-                        type="button"
-                        class="btn btn-sm btn-outline-light theme-toggle-btn ms-lg-2"
-                        title="Toggle Dark/Light Mode"
-                        aria-label="Toggle Dark/Light Mode"
-                    >
-
-                        <i
-                            id="theme-icon"
-                            class="fas fa-moon"
-                        ></i>
-
-                    </button>
-
-                </li>
-
-
-                <!-- STUDENT PORTAL -->
-
-                <li class="nav-item">
-
-                    <a
-                        class="btn btn-warning fw-semibold px-3 ms-lg-2"
-                        href="https://forces-academy-lms.infinityfreeapp.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        <i class="fas fa-user-graduate me-1"></i>
-
-                        Student Portal
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </div>
+        </ul>
 
     </div>
 
+</div>
+```
+
 </nav>
-
-
 
 <!-- =========================================================
      HERO SECTION
@@ -269,83 +263,73 @@
 
 <section id="hero">
 
-    <div class="hero-overlay">
+```
+<div class="hero-overlay">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="row align-items-center min-vh-75">
+        <div class="row align-items-center min-vh-75">
 
-                <div
-                    class="col-lg-8 text-white animate-fade-in"
+            <div
+                class="col-lg-8 text-white animate-fade-in"
+            >
+
+                <span
+                    class="badge bg-warning text-dark mb-3 px-3 py-2"
                 >
 
+                    <i class="fas fa-star me-1"></i>
 
-                    <!-- BADGE -->
+                    Welcome to Forces Academy
 
-                    <span
-                        class="badge bg-warning text-dark mb-3 px-3 py-2"
+                </span>
+
+
+                <h1 class="display-3 fw-bold mb-4">
+
+                    Forces Academy Faisalabad
+
+                </h1>
+
+
+                <p class="lead mb-4">
+
+                    Building strong academic foundations and preparing
+                    students for board examinations and competitive
+                    entry tests.
+
+                </p>
+
+
+                <div class="d-flex flex-wrap gap-3">
+
+
+                    <!-- Apply Now -->
+
+                    <a
+                        href="admissions.html"
+                        class="btn btn-warning btn-lg fw-semibold px-4"
                     >
 
-                        <i class="fas fa-star me-1"></i>
+                        <i class="fas fa-paper-plane me-2"></i>
 
-                        Welcome to Forces Academy
+                        Apply Now
 
-                    </span>
-
-
-                    <!-- HEADING -->
-
-                    <h1 class="display-3 fw-bold mb-4">
-
-                        Forces Academy Faisalabad
-
-                    </h1>
+                    </a>
 
 
-                    <!-- DESCRIPTION -->
+                    <!-- Explore Courses -->
 
-                    <p class="lead mb-4">
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-light btn-lg px-4"
+                    >
 
-                        Building strong academic foundations and preparing
-                        students for board examinations and competitive
-                        entry tests.
+                        <i class="fas fa-book-open me-2"></i>
 
-                    </p>
+                        Explore Courses
 
-
-                    <!-- BUTTONS -->
-
-                    <div class="d-flex flex-wrap gap-3">
-
-
-                        <!-- APPLY -->
-
-                        <a
-                            href="admissions.html"
-                            class="btn btn-warning btn-lg fw-semibold px-4"
-                        >
-
-                            <i class="fas fa-paper-plane me-2"></i>
-
-                            Apply Now
-
-                        </a>
-
-
-                        <!-- COURSES -->
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-light btn-lg px-4"
-                        >
-
-                            <i class="fas fa-book-open me-2"></i>
-
-                            Explore Courses
-
-                        </a>
-
-                    </div>
+                    </a>
 
                 </div>
 
@@ -355,9 +339,10 @@
 
     </div>
 
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      INTRODUCTION
@@ -365,191 +350,190 @@
 
 <section class="py-5">
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="row align-items-center g-5">
-
-
-            <!-- LEFT CONTENT -->
-
-            <div class="col-lg-6">
-
-                <span class="text-primary fw-semibold">
-
-                    ABOUT OUR ACADEMY
-
-                </span>
+    <div class="row align-items-center g-5">
 
 
-                <h2 class="fw-bold mb-3 mt-2">
+        <!-- Introduction Text -->
 
-                    Excellence in Education
+        <div class="col-lg-6">
 
-                </h2>
+            <span class="text-primary fw-semibold">
 
+                ABOUT OUR ACADEMY
 
-                <p class="text-muted">
-
-                    Forces Academy Faisalabad is committed to providing
-                    quality education through conceptual learning,
-                    experienced teachers and regular assessment.
-
-                </p>
+            </span>
 
 
-                <p class="text-muted">
+            <h2 class="fw-bold mb-3 mt-2">
 
-                    Our programs are designed to help students improve
-                    their academic performance and prepare confidently
-                    for future educational opportunities.
+                Excellence in Education
 
-                </p>
+            </h2>
 
 
-                <a
-                    href="about.html"
-                    class="btn btn-primary"
-                >
+            <p class="text-muted">
 
-                    <i class="fas fa-arrow-right me-2"></i>
+                Forces Academy Faisalabad is committed to providing
+                quality education through conceptual learning,
+                experienced teachers and regular assessment.
 
-                    Learn More
-
-                </a>
-
-            </div>
+            </p>
 
 
-            <!-- RIGHT FEATURES -->
+            <p class="text-muted">
 
-            <div class="col-lg-6">
+                Our programs are designed to help students improve
+                their academic performance and prepare confidently
+                for future educational opportunities.
 
-                <div class="row g-3">
-
-
-                    <!-- FEATURE 1 -->
-
-                    <div class="col-md-6">
-
-                        <div
-                            class="card h-100 border-0 shadow-sm text-center p-4"
-                        >
-
-                            <i
-                                class="fas fa-chalkboard-teacher fa-3x mb-3 text-primary"
-                            ></i>
+            </p>
 
 
-                            <h5 class="fw-bold">
+            <a
+                href="about.html"
+                class="btn btn-primary"
+            >
 
-                                Expert Teachers
+                <i class="fas fa-arrow-right me-2"></i>
 
-                            </h5>
+                Learn More
 
+            </a>
 
-                            <p class="text-muted small mb-0">
-
-                                Experienced instructors focused on
-                                conceptual learning.
-
-                            </p>
-
-                        </div>
-
-                    </div>
+        </div>
 
 
-                    <!-- FEATURE 2 -->
+        <!-- Features -->
 
-                    <div class="col-md-6">
+        <div class="col-lg-6">
 
-                        <div
-                            class="card h-100 border-0 shadow-sm text-center p-4"
-                        >
-
-                            <i
-                                class="fas fa-book-open fa-3x mb-3 text-primary"
-                            ></i>
+            <div class="row g-3">
 
 
-                            <h5 class="fw-bold">
+                <!-- Feature 1 -->
 
-                                Quality Learning
+                <div class="col-md-6">
 
-                            </h5>
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4"
+                    >
+
+                        <i
+                            class="fas fa-chalkboard-teacher fa-3x mb-3 text-primary"
+                        ></i>
 
 
-                            <p class="text-muted small mb-0">
+                        <h5 class="fw-bold">
 
-                                Structured courses and regular academic
-                                practice.
+                            Expert Teachers
 
-                            </p>
+                        </h5>
 
-                        </div>
+
+                        <p class="text-muted small mb-0">
+
+                            Experienced instructors focused on
+                            conceptual learning.
+
+                        </p>
 
                     </div>
 
-
-                    <!-- FEATURE 3 -->
-
-                    <div class="col-md-6">
-
-                        <div
-                            class="card h-100 border-0 shadow-sm text-center p-4"
-                        >
-
-                            <i
-                                class="fas fa-file-alt fa-3x mb-3 text-primary"
-                            ></i>
+                </div>
 
 
-                            <h5 class="fw-bold">
+                <!-- Feature 2 -->
 
-                                Regular Tests
+                <div class="col-md-6">
 
-                            </h5>
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4"
+                    >
+
+                        <i
+                            class="fas fa-book-open fa-3x mb-3 text-primary"
+                        ></i>
 
 
-                            <p class="text-muted small mb-0">
+                        <h5 class="fw-bold">
 
-                                Regular assessments to track student
-                                progress.
+                            Quality Learning
 
-                            </p>
+                        </h5>
 
-                        </div>
+
+                        <p class="text-muted small mb-0">
+
+                            Structured courses and regular academic
+                            practice.
+
+                        </p>
 
                     </div>
 
-
-                    <!-- FEATURE 4 -->
-
-                    <div class="col-md-6">
-
-                        <div
-                            class="card h-100 border-0 shadow-sm text-center p-4"
-                        >
-
-                            <i
-                                class="fas fa-trophy fa-3x mb-3 text-primary"
-                            ></i>
+                </div>
 
 
-                            <h5 class="fw-bold">
+                <!-- Feature 3 -->
 
-                                Better Results
+                <div class="col-md-6">
 
-                            </h5>
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4"
+                    >
+
+                        <i
+                            class="fas fa-file-alt fa-3x mb-3 text-primary"
+                        ></i>
 
 
-                            <p class="text-muted small mb-0">
+                        <h5 class="fw-bold">
 
-                                Focused preparation for academic success.
+                            Regular Tests
 
-                            </p>
+                        </h5>
 
-                        </div>
+
+                        <p class="text-muted small mb-0">
+
+                            Regular assessments to track student
+                            progress.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Feature 4 -->
+
+                <div class="col-md-6">
+
+                    <div
+                        class="card h-100 border-0 shadow-sm text-center p-4"
+                    >
+
+                        <i
+                            class="fas fa-trophy fa-3x mb-3 text-primary"
+                        ></i>
+
+
+                        <h5 class="fw-bold">
+
+                            Better Results
+
+                        </h5>
+
+
+                        <p class="text-muted small mb-0">
+
+                            Focused preparation for academic success.
+
+                        </p>
 
                     </div>
 
@@ -561,9 +545,10 @@
 
     </div>
 
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      STATS SECTION
@@ -574,156 +559,144 @@
     class="py-5 bg-light"
 >
 
-    <div class="container">
+```
+<div class="container">
+
+    <div class="text-center mb-4">
+
+        <span class="text-primary fw-semibold">
+
+            OUR ACHIEVEMENTS
+
+        </span>
 
 
-        <!-- HEADING -->
+        <h2 class="fw-bold mt-2">
 
-        <div class="text-center mb-4">
+            Academy at a Glance
 
-            <span class="text-primary fw-semibold">
+        </h2>
 
-                OUR ACHIEVEMENTS
-
-            </span>
+    </div>
 
 
-            <h2 class="fw-bold mt-2">
+    <div class="row text-center g-4">
 
-                Academy at a Glance
 
-            </h2>
+        <!-- Students -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="p-4">
+
+                <i
+                    class="fas fa-users fa-2x text-primary mb-3"
+                ></i>
+
+
+                <h2
+                    class="fw-bold display-6"
+                    data-target="500"
+                >
+                    0
+                </h2>
+
+
+                <p class="text-muted mb-0">
+
+                    Students
+
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="row text-center g-4">
+        <!-- Teachers -->
+
+        <div class="col-6 col-lg-3">
+
+            <div class="p-4">
+
+                <i
+                    class="fas fa-user-tie fa-2x text-primary mb-3"
+                ></i>
 
 
-            <!-- STUDENTS -->
-
-            <div class="col-6 col-lg-3">
-
-                <div class="p-4">
-
-                    <i
-                        class="fas fa-users fa-2x text-primary mb-3"
-                    ></i>
+                <h2
+                    class="fw-bold display-6"
+                    data-target="30"
+                >
+                    0
+                </h2>
 
 
-                    <h2
-                        class="fw-bold display-6"
-                        data-target="500"
-                    >
+                <p class="text-muted mb-0">
 
-                        0
+                    Expert Teachers
 
-                    </h2>
-
-
-                    <p class="text-muted mb-0">
-
-                        Students
-
-                    </p>
-
-                </div>
+                </p>
 
             </div>
 
-
-            <!-- TEACHERS -->
-
-            <div class="col-6 col-lg-3">
-
-                <div class="p-4">
-
-                    <i
-                        class="fas fa-user-tie fa-2x text-primary mb-3"
-                    ></i>
+        </div>
 
 
-                    <h2
-                        class="fw-bold display-6"
-                        data-target="30"
-                    >
+        <!-- Programs -->
 
-                        0
+        <div class="col-6 col-lg-3">
 
-                    </h2>
+            <div class="p-4">
+
+                <i
+                    class="fas fa-graduation-cap fa-2x text-primary mb-3"
+                ></i>
 
 
-                    <p class="text-muted mb-0">
+                <h2
+                    class="fw-bold display-6"
+                    data-target="15"
+                >
+                    0
+                </h2>
 
-                        Expert Teachers
 
-                    </p>
+                <p class="text-muted mb-0">
 
-                </div>
+                    Programs
+
+                </p>
 
             </div>
 
-
-            <!-- PROGRAMS -->
-
-            <div class="col-6 col-lg-3">
-
-                <div class="p-4">
-
-                    <i
-                        class="fas fa-graduation-cap fa-2x text-primary mb-3"
-                    ></i>
+        </div>
 
 
-                    <h2
-                        class="fw-bold display-6"
-                        data-target="15"
-                    >
+        <!-- Success -->
 
-                        0
+        <div class="col-6 col-lg-3">
 
-                    </h2>
+            <div class="p-4">
 
-
-                    <p class="text-muted mb-0">
-
-                        Programs
-
-                    </p>
-
-                </div>
-
-            </div>
+                <i
+                    class="fas fa-award fa-2x text-primary mb-3"
+                ></i>
 
 
-            <!-- SUCCESS -->
-
-            <div class="col-6 col-lg-3">
-
-                <div class="p-4">
-
-                    <i
-                        class="fas fa-award fa-2x text-primary mb-3"
-                    ></i>
+                <h2
+                    class="fw-bold display-6"
+                    data-target="95"
+                >
+                    0
+                </h2>
 
 
-                    <h2
-                        class="fw-bold display-6"
-                        data-target="95"
-                    >
+                <p class="text-muted mb-0">
 
-                        0
+                    Success Rate %
 
-                    </h2>
-
-
-                    <p class="text-muted mb-0">
-
-                        Success Rate %
-
-                    </p>
-
-                </div>
+                </p>
 
             </div>
 
@@ -731,9 +704,10 @@
 
     </div>
 
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      COURSES SECTION
@@ -741,309 +715,75 @@
 
 <section class="py-5">
 
-    <div class="container">
+```
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <span class="text-primary fw-semibold">
+
+            WHAT WE OFFER
+
+        </span>
 
 
-        <!-- HEADING -->
+        <h2 class="fw-bold mt-2">
 
-        <div class="text-center mb-5">
+            Our Popular Programs
 
-            <span class="text-primary fw-semibold">
-
-                WHAT WE OFFER
-
-            </span>
+        </h2>
 
 
-            <h2 class="fw-bold mt-2">
+        <p class="text-muted">
 
-                Our Popular Programs
+            Choose the program that matches your academic goals.
 
-            </h2>
+        </p>
 
-
-            <p class="text-muted">
-
-                Choose the program that matches your academic goals.
-
-            </p>
-
-        </div>
+    </div>
 
 
-        <div class="row g-4">
+    <div class="row g-4">
 
 
-            <!-- COURSE 1 -->
+        <!-- Course 1 -->
 
-            <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 border-0 shadow-sm">
+            <div class="card h-100 border-0 shadow-sm">
 
-                    <div class="card-body p-4">
+                <div class="card-body p-4">
 
-                        <div class="mb-3 text-primary">
+                    <div class="mb-3 text-primary">
 
-                            <i class="fas fa-user-md fa-2x"></i>
-
-                        </div>
-
-
-                        <h5 class="fw-bold">
-
-                            FSc Pre-Medical
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Comprehensive preparation for Biology,
-                            Chemistry and Physics.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
+                        <i class="fas fa-user-md fa-2x"></i>
 
                     </div>
 
-                </div>
 
-            </div>
+                    <h5 class="fw-bold">
 
+                        FSc Pre-Medical
 
-            <!-- COURSE 2 -->
+                    </h5>
 
-            <div class="col-md-6 col-lg-4">
 
-                <div class="card h-100 border-0 shadow-sm">
+                    <p class="text-muted">
 
-                    <div class="card-body p-4">
+                        Comprehensive preparation for Biology,
+                        Chemistry and Physics.
 
-                        <div class="mb-3 text-success">
+                    </p>
 
-                            <i class="fas fa-calculator fa-2x"></i>
 
-                        </div>
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
 
+                        View Course
 
-                        <h5 class="fw-bold">
-
-                            FSc Pre-Engineering
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Strong preparation in Mathematics,
-                            Physics and Chemistry.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- COURSE 3 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 border-0 shadow-sm">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3 text-info">
-
-                            <i class="fas fa-laptop-code fa-2x"></i>
-
-                        </div>
-
-
-                        <h5 class="fw-bold">
-
-                            ICS Computer Science
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Computer Science education combined with
-                            mathematics and statistics.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- COURSE 4 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 border-0 shadow-sm">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3 text-warning">
-
-                            <i class="fas fa-microscope fa-2x"></i>
-
-                        </div>
-
-
-                        <h5 class="fw-bold">
-
-                            Matric Science
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Strong foundation for 9th and 10th grade
-                            science students.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- COURSE 5 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 border-0 shadow-sm">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3 text-danger">
-
-                            <i class="fas fa-book-open fa-2x"></i>
-
-                        </div>
-
-
-                        <h5 class="fw-bold">
-
-                            Matric Arts
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Complete academic support for humanities
-                            and compulsory subjects.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- COURSE 6 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 border-0 shadow-sm">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3 text-dark">
-
-                            <i class="fas fa-graduation-cap fa-2x"></i>
-
-                        </div>
-
-
-                        <h5 class="fw-bold">
-
-                            Entry Test Preparation
-
-                        </h5>
-
-
-                        <p class="text-muted">
-
-                            Preparation for MDCAT, ECAT and university
-                            entrance tests.
-
-                        </p>
-
-
-                        <a
-                            href="courses.html"
-                            class="btn btn-outline-primary btn-sm"
-                        >
-
-                            View Course
-
-                        </a>
-
-                    </div>
+                    </a>
 
                 </div>
 
@@ -1052,28 +792,259 @@
         </div>
 
 
-        <!-- ALL COURSES BUTTON -->
+        <!-- Course 2 -->
 
-        <div class="text-center mt-4">
+        <div class="col-md-6 col-lg-4">
 
-            <a
-                href="courses.html"
-                class="btn btn-primary px-4"
-            >
+            <div class="card h-100 border-0 shadow-sm">
 
-                <i class="fas fa-layer-group me-2"></i>
+                <div class="card-body p-4">
 
-                View All Courses
+                    <div class="mb-3 text-success">
 
-            </a>
+                        <i class="fas fa-calculator fa-2x"></i>
+
+                    </div>
+
+
+                    <h5 class="fw-bold">
+
+                        FSc Pre-Engineering
+
+                    </h5>
+
+
+                    <p class="text-muted">
+
+                        Strong preparation in Mathematics,
+                        Physics and Chemistry.
+
+                    </p>
+
+
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
+
+                        View Course
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Course 3 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3 text-info">
+
+                        <i class="fas fa-laptop-code fa-2x"></i>
+
+                    </div>
+
+
+                    <h5 class="fw-bold">
+
+                        ICS Computer Science
+
+                    </h5>
+
+
+                    <p class="text-muted">
+
+                        Computer Science education combined with
+                        mathematics and statistics.
+
+                    </p>
+
+
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
+
+                        View Course
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Course 4 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3 text-warning">
+
+                        <i class="fas fa-microscope fa-2x"></i>
+
+                    </div>
+
+
+                    <h5 class="fw-bold">
+
+                        Matric Science
+
+                    </h5>
+
+
+                    <p class="text-muted">
+
+                        Strong foundation for 9th and 10th grade
+                        science students.
+
+                    </p>
+
+
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
+
+                        View Course
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Course 5 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3 text-danger">
+
+                        <i class="fas fa-book-open fa-2x"></i>
+
+                    </div>
+
+
+                    <h5 class="fw-bold">
+
+                        Matric Arts
+
+                    </h5>
+
+
+                    <p class="text-muted">
+
+                        Complete academic support for humanities
+                        and compulsory subjects.
+
+                    </p>
+
+
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
+
+                        View Course
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Course 6 -->
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 border-0 shadow-sm">
+
+                <div class="card-body p-4">
+
+                    <div class="mb-3 text-dark">
+
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+
+                    </div>
+
+
+                    <h5 class="fw-bold">
+
+                        Entry Test Preparation
+
+                    </h5>
+
+
+                    <p class="text-muted">
+
+                        Preparation for MDCAT, ECAT and university
+                        entrance tests.
+
+                    </p>
+
+
+                    <a
+                        href="courses.html"
+                        class="btn btn-outline-primary btn-sm"
+                    >
+
+                        View Course
+
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- View All Courses -->
+
+    <div class="text-center mt-4">
+
+        <a
+            href="courses.html"
+            class="btn btn-primary px-4"
+        >
+
+            <i class="fas fa-layer-group me-2"></i>
+
+            View All Courses
+
+        </a>
+
+    </div>
+
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      TESTIMONIALS
@@ -1081,194 +1052,84 @@
 
 <section class="py-5 bg-light">
 
-    <div class="container">
+```
+<div class="container">
 
+    <div class="text-center mb-5">
 
-        <!-- HEADING -->
+        <span class="text-primary fw-semibold">
 
-        <div class="text-center mb-5">
+            STUDENT FEEDBACK
 
-            <span class="text-primary fw-semibold">
+        </span>
 
-                STUDENT FEEDBACK
 
-            </span>
+        <h2 class="fw-bold mt-2">
 
+            What Our Students Say
 
-            <h2 class="fw-bold mt-2">
+        </h2>
 
-                What Our Students Say
 
-            </h2>
+        <p class="text-muted">
 
+            Feedback from our students.
 
-            <p class="text-muted">
+        </p>
 
-                Feedback from our students.
+    </div>
 
-            </p>
 
-        </div>
+    <div
+        id="testimonialCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+    >
 
+        <div class="carousel-inner">
 
-        <!-- CAROUSEL -->
 
-        <div
-            id="testimonialCarousel"
-            class="carousel slide"
-            data-bs-ride="carousel"
-        >
+            <!-- Testimonial 1 -->
 
-            <div class="carousel-inner">
+            <div class="carousel-item active">
 
+                <div class="row justify-content-center">
 
-                <!-- TESTIMONIAL 1 -->
+                    <div class="col-lg-8">
 
-                <div class="carousel-item active">
+                        <div class="card border-0 shadow-sm">
 
-                    <div class="row justify-content-center">
+                            <div
+                                class="card-body p-5 text-center"
+                            >
 
-                        <div class="col-lg-8">
+                                <i
+                                    class="fas fa-quote-left fa-2x text-warning mb-3"
+                                ></i>
 
-                            <div class="card border-0 shadow-sm">
 
-                                <div
-                                    class="card-body p-5 text-center"
-                                >
+                                <p class="lead text-muted">
 
-                                    <i
-                                        class="fas fa-quote-left fa-2x text-warning mb-3"
-                                    ></i>
+                                    The teachers explain difficult
+                                    concepts in a simple and clear way.
+                                    Regular tests helped me improve
+                                    my preparation.
 
+                                </p>
 
-                                    <p class="lead text-muted">
 
-                                        The teachers explain difficult
-                                        concepts in a simple and clear way.
-                                        Regular tests helped me improve
-                                        my preparation.
+                                <h5 class="fw-bold">
 
-                                    </p>
+                                    Ayesha Khan
 
+                                </h5>
 
-                                    <h5 class="fw-bold">
 
-                                        Ayesha Khan
+                                <small class="text-muted">
 
-                                    </h5>
+                                    FSc Pre-Medical
 
-
-                                    <small class="text-muted">
-
-                                        FSc Pre-Medical
-
-                                    </small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TESTIMONIAL 2 -->
-
-                <div class="carousel-item">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-lg-8">
-
-                            <div class="card border-0 shadow-sm">
-
-                                <div
-                                    class="card-body p-5 text-center"
-                                >
-
-                                    <i
-                                        class="fas fa-quote-left fa-2x text-warning mb-3"
-                                    ></i>
-
-
-                                    <p class="lead text-muted">
-
-                                        The academy provides a good learning
-                                        environment and focuses on both
-                                        concepts and exam preparation.
-
-                                    </p>
-
-
-                                    <h5 class="fw-bold">
-
-                                        Muhammad Bilal
-
-                                    </h5>
-
-
-                                    <small class="text-muted">
-
-                                        FSc Pre-Engineering
-
-                                    </small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TESTIMONIAL 3 -->
-
-                <div class="carousel-item">
-
-                    <div class="row justify-content-center">
-
-                        <div class="col-lg-8">
-
-                            <div class="card border-0 shadow-sm">
-
-                                <div
-                                    class="card-body p-5 text-center"
-                                >
-
-                                    <i
-                                        class="fas fa-quote-left fa-2x text-warning mb-3"
-                                    ></i>
-
-
-                                    <p class="lead text-muted">
-
-                                        I found the entry test preparation
-                                        very helpful. The regular practice
-                                        sessions improved my confidence.
-
-                                    </p>
-
-
-                                    <h5 class="fw-bold">
-
-                                        Zainab Fatima
-
-                                    </h5>
-
-
-                                    <small class="text-muted">
-
-                                        Entry Test Preparation
-
-                                    </small>
-
-                                </div>
+                                </small>
 
                             </div>
 
@@ -1281,56 +1142,159 @@
             </div>
 
 
-            <!-- PREVIOUS -->
+            <!-- Testimonial 2 -->
 
-            <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#testimonialCarousel"
-                data-bs-slide="prev"
-            >
+            <div class="carousel-item">
 
-                <span
-                    class="carousel-control-prev-icon bg-dark rounded"
-                ></span>
+                <div class="row justify-content-center">
 
-                <span class="visually-hidden">
+                    <div class="col-lg-8">
 
-                    Previous
+                        <div class="card border-0 shadow-sm">
 
-                </span>
+                            <div
+                                class="card-body p-5 text-center"
+                            >
 
-            </button>
+                                <i
+                                    class="fas fa-quote-left fa-2x text-warning mb-3"
+                                ></i>
 
 
-            <!-- NEXT -->
+                                <p class="lead text-muted">
 
-            <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#testimonialCarousel"
-                data-bs-slide="next"
-            >
+                                    The academy provides a good learning
+                                    environment and focuses on both
+                                    concepts and exam preparation.
 
-                <span
-                    class="carousel-control-next-icon bg-dark rounded"
-                ></span>
+                                </p>
 
-                <span class="visually-hidden">
 
-                    Next
+                                <h5 class="fw-bold">
 
-                </span>
+                                    Muhammad Bilal
 
-            </button>
+                                </h5>
+
+
+                                <small class="text-muted">
+
+                                    FSc Pre-Engineering
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Testimonial 3 -->
+
+            <div class="carousel-item">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-8">
+
+                        <div class="card border-0 shadow-sm">
+
+                            <div class="card-body p-5 text-center">
+
+                                <i
+                                    class="fas fa-quote-left fa-2x text-warning mb-3"
+                                ></i>
+
+
+                                <p class="lead text-muted">
+
+                                    I found the entry test preparation
+                                    very helpful. The regular practice
+                                    sessions improved my confidence.
+
+                                </p>
+
+
+                                <h5 class="fw-bold">
+
+                                    Zainab Fatima
+
+                                </h5>
+
+
+                                <small class="text-muted">
+
+                                    Entry Test Preparation
+
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
+
+        <!-- Previous -->
+
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+        >
+
+            <span
+                class="carousel-control-prev-icon bg-dark rounded"
+            ></span>
+
+            <span class="visually-hidden">
+
+                Previous
+
+            </span>
+
+        </button>
+
+
+        <!-- Next -->
+
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+        >
+
+            <span
+                class="carousel-control-next-icon bg-dark rounded"
+            ></span>
+
+            <span class="visually-hidden">
+
+                Next
+
+            </span>
+
+        </button>
+
     </div>
 
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      CALL TO ACTION
@@ -1338,46 +1302,46 @@
 
 <section class="py-5">
 
-    <div class="container">
+```
+<div class="container">
 
-        <div
-            class="p-5 text-center rounded shadow-sm"
-            style="background-color:#0a1f44;"
+    <div
+        class="p-5 text-center rounded shadow-sm"
+        style="background-color:#0a1f44;"
+    >
+
+        <h2 class="fw-bold text-white mb-3">
+
+            Start Your Academic Journey Today
+
+        </h2>
+
+
+        <p class="text-white-50 mb-4">
+
+            Join Forces Academy Faisalabad and take the next step
+            toward your academic goals.
+
+        </p>
+
+
+        <a
+            href="admissions.html"
+            class="btn btn-warning btn-lg fw-semibold px-4"
         >
 
-            <h2 class="fw-bold text-white mb-3">
+            <i class="fas fa-user-plus me-2"></i>
 
-                Start Your Academic Journey Today
+            Apply for Admission
 
-            </h2>
-
-
-            <p class="text-white-50 mb-4">
-
-                Join Forces Academy Faisalabad and take the next step
-                toward your academic goals.
-
-            </p>
-
-
-            <a
-                href="admissions.html"
-                class="btn btn-warning btn-lg fw-semibold px-4"
-            >
-
-                <i class="fas fa-user-plus me-2"></i>
-
-                Apply for Admission
-
-            </a>
-
-        </div>
+        </a>
 
     </div>
 
+</div>
+```
+
 </section>
-
-
 
 <!-- =========================================================
      FOOTER
@@ -1385,154 +1349,130 @@
 
 <footer class="bg-dark text-white pt-5 pb-4">
 
-    <div class="container">
+```
+<div class="container">
 
-        <div class="row text-center text-md-start">
+    <div class="row text-center text-md-start">
 
 
-            <!-- ABOUT -->
+        <!-- About -->
 
-            <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4">
 
-                <h5 class="text-warning fw-bold mb-3">
+            <h5 class="text-warning fw-bold mb-3">
 
-                    <i class="fas fa-shield-halved me-2"></i>
+                <i class="fas fa-shield-halved me-2"></i>
 
-                    Forces Academy
+                Forces Academy
 
-                </h5>
+            </h5>
 
 
-                <p class="text-white-50">
+            <p class="text-white-50">
 
-                    Providing quality education and training to shape
-                    a bright future for our students.
+                Providing quality education and training to shape
+                a bright future for our students.
 
-                </p>
-
-            </div>
-
-
-            <!-- QUICK LINKS -->
-
-            <div class="col-md-4 mb-4">
-
-                <h5 class="text-warning fw-bold mb-3">
-
-                    Quick Links
-
-                </h5>
-
-
-                <p class="mb-2">
-
-                    <a
-                        href="about.html"
-                        class="text-white text-decoration-none"
-                    >
-
-                        About Us
-
-                    </a>
-
-                </p>
-
-
-                <p class="mb-2">
-
-                    <a
-                        href="courses.html"
-                        class="text-white text-decoration-none"
-                    >
-
-                        Courses
-
-                    </a>
-
-                </p>
-
-
-                <p class="mb-2">
-
-                    <a
-                        href="admissions.html"
-                        class="text-white text-decoration-none"
-                    >
-
-                        Admissions
-
-                    </a>
-
-                </p>
-
-
-                <p class="mb-2">
-
-                    <a
-                        href="results.html"
-                        class="text-white text-decoration-none"
-                    >
-
-                        Results
-
-                    </a>
-
-                </p>
-
-            </div>
-
-
-            <!-- CONTACT -->
-
-            <div class="col-md-4 mb-4">
-
-                <h5 class="text-warning fw-bold mb-3">
-
-                    Contact
-
-                </h5>
-
-
-                <p class="text-white-50 mb-2">
-
-                    <i class="fas fa-home me-2"></i>
-
-                    Faisalabad, Pakistan
-
-                </p>
-
-
-                <p class="text-white-50 mb-2">
-
-                    <i class="fas fa-envelope me-2"></i>
-
-                    info@forcesacademy.com
-
-                </p>
-
-
-                <p class="text-white-50 mb-2">
-
-                    <i class="fas fa-phone me-2"></i>
-
-                    +92 300 0000000
-
-                </p>
-
-            </div>
+            </p>
 
         </div>
 
 
-        <hr>
+        <!-- Quick Links -->
+
+        <div class="col-md-4 mb-4">
+
+            <h5 class="text-warning fw-bold mb-3">
+
+                Quick Links
+
+            </h5>
 
 
-        <div class="text-center">
+            <p class="mb-2">
 
-            <p class="mb-0 text-white-50">
+                <a
+                    href="about.html"
+                    class="text-white text-decoration-none"
+                >
+                    About Us
+                </a>
 
-                © 2026 Forces Academy Faisalabad.
-                All rights reserved.
+            </p>
+
+
+            <p class="mb-2">
+
+                <a
+                    href="courses.html"
+                    class="text-white text-decoration-none"
+                >
+                    Courses
+                </a>
+
+            </p>
+
+
+            <p class="mb-2">
+
+                <a
+                    href="admissions.html"
+                    class="text-white text-decoration-none"
+                >
+                    Admissions
+                </a>
+
+            </p>
+
+
+            <p class="mb-2">
+
+                <a
+                    href="results.html"
+                    class="text-white text-decoration-none"
+                >
+                    Results
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- Contact -->
+
+        <div class="col-md-4 mb-4">
+
+            <h5 class="text-warning fw-bold mb-3">
+
+                Contact
+
+            </h5>
+
+
+            <p class="text-white-50 mb-2">
+
+                <i class="fas fa-home me-2"></i>
+
+                Faisalabad, Pakistan
+
+            </p>
+
+
+            <p class="text-white-50 mb-2">
+
+                <i class="fas fa-envelope me-2"></i>
+
+                info@forcesacademy.com
+
+            </p>
+
+
+            <p class="text-white-50 mb-2">
+
+                <i class="fas fa-phone me-2"></i>
+
+                +92 300 0000000
 
             </p>
 
@@ -1540,28 +1480,45 @@
 
     </div>
 
+
+    <hr>
+
+
+    <div class="text-center">
+
+        <p class="mb-0 text-white-50">
+
+            © 2026 Forces Academy Faisalabad.
+            All rights reserved.
+
+        </p>
+
+    </div>
+
+</div>
+```
+
 </footer>
-
-
 
 <!-- =========================================================
      BACK TO TOP BUTTON
 ========================================================= -->
 
 <button
-    id="backToTop"
-    type="button"
-    class="btn btn-warning rounded-circle position-fixed bottom-0 end-0 m-4 d-none"
-    style="width:45px; height:45px; z-index:999;"
-    title="Back to Top"
-    aria-label="Back to Top"
+id="backToTop"
+type="button"
+class="btn btn-warning rounded-circle position-fixed bottom-0 end-0 m-4 d-none"
+style="width:45px; height:45px; z-index:999;"
+title="Back to Top"
+aria-label="Back to Top"
+
 >
 
-    <i class="fas fa-arrow-up"></i>
+```
+<i class="fas fa-arrow-up"></i>
+```
 
 </button>
-
-
 
 <!-- =========================================================
      BOOTSTRAP JS
@@ -1571,17 +1528,11 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
 ></script>
 
-
-
 <!-- =========================================================
-     CUSTOM JAVASCRIPT
-     Dark/Light Mode + Other Features
+     CUSTOM JS
 ========================================================= -->
 
 <script src="js/main.js"></script>
 
-
 </body>
-
 </html>
-```
