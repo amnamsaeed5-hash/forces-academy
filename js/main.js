@@ -1,265 +1,663 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ==========================================
-    // LOCALSTORAGE DARK MODE TOGGLE
-    // ==========================================
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
 
-    // Load saved theme on page open
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode", "dark-theme");
-        if (themeIcon) {
+    /* =========================================================
+       1. DARK / LIGHT MODE
+       ========================================================= */
+
+    const themeToggleBtn =
+        document.getElementById("theme-toggle");
+
+    const themeIcon =
+        document.getElementById("theme-icon");
+
+
+    /* ---------------------------------------------------------
+       Update Theme Icon
+       --------------------------------------------------------- */
+
+    function updateThemeIcon(isDark) {
+
+        if (!themeIcon) {
+            return;
+        }
+
+
+        if (isDark) {
+
             themeIcon.classList.remove("fa-moon");
             themeIcon.classList.add("fa-sun");
+
+        } else {
+
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+
         }
+
     }
 
-    if (themeToggleBtn && themeIcon) {
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('dark-theme');
 
-            if (document.body.classList.contains('dark-mode') || document.body.classList.contains('dark-theme')) {
-                localStorage.setItem("theme", "dark");
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                localStorage.setItem("theme", "light");
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+    /* ---------------------------------------------------------
+       Apply Theme
+       --------------------------------------------------------- */
+
+    function applyTheme(theme) {
+
+        if (theme === "dark") {
+
+            document.body.classList.add("dark-theme");
+
+            updateThemeIcon(true);
+
+        } else {
+
+            document.body.classList.remove("dark-theme");
+
+            updateThemeIcon(false);
+
+        }
+
+    }
+
+
+    /* ---------------------------------------------------------
+       Get Saved Theme
+       --------------------------------------------------------- */
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+
+    /* ---------------------------------------------------------
+       Apply Saved Theme
+       --------------------------------------------------------- */
+
+    if (savedTheme === "dark") {
+
+        applyTheme("dark");
+
+    } else {
+
+        applyTheme("light");
+
+    }
+
+
+    /* ---------------------------------------------------------
+       Theme Toggle Button
+       --------------------------------------------------------- */
+
+    if (themeToggleBtn) {
+
+        themeToggleBtn.addEventListener(
+            "click",
+            function () {
+
+
+                const isDark =
+                    document.body.classList.contains("dark-theme");
+
+
+                if (isDark) {
+
+                    /* Switch to Light */
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+                    applyTheme("light");
+
+
+                } else {
+
+                    /* Switch to Dark */
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+                    applyTheme("dark");
+
+                }
+
             }
-        });
+        );
+
     }
 
-    // ==========================================
-    // 1. GALLERY FILTER & LIGHTBOX
-    // ==========================================
-    if (typeof GLightbox !== 'undefined') {
-        const lightbox = GLightbox({
-            selector: '.glightbox',
+
+
+    /* =========================================================
+       2. GALLERY FILTER
+       ========================================================= */
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const galleryItems =
+        document.querySelectorAll(".gallery-item");
+
+
+    if (
+        filterButtons.length > 0 &&
+        galleryItems.length > 0
+    ) {
+
+        filterButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    /* Remove active */
+
+                    filterButtons.forEach(
+                        function (btn) {
+
+                            btn.classList.remove("active");
+
+                        }
+                    );
+
+
+                    /* Add active */
+
+                    this.classList.add("active");
+
+
+                    const filterValue =
+                        this.getAttribute("data-filter");
+
+
+                    galleryItems.forEach(
+                        function (item) {
+
+
+                            if (
+                                filterValue === "all" ||
+                                item.classList.contains(filterValue)
+                            ) {
+
+                                item.style.display = "";
+
+                            } else {
+
+                                item.style.display = "none";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================================================
+       3. GLIGHTBOX
+       ========================================================= */
+
+    if (typeof GLightbox !== "undefined") {
+
+        GLightbox({
+
+            selector: ".glightbox",
+
             loop: true
+
         });
 
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const galleryItems = document.querySelectorAll(".gallery-item");
-
-        filterButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                filterButtons.forEach(btn => btn.classList.remove("active"));
-                this.classList.add("active");
-
-                const filterValue = this.getAttribute("data-filter");
-
-                galleryItems.forEach(item => {
-                    if (filterValue === "all" || item.classList.contains(filterValue)) {
-                        item.style.display = "block";
-                    } else {
-                        item.style.display = "none";
-                    }
-                });
-
-                lightbox.reload();
-            });
-        });
     }
 
-    // ==========================================
-    // 2. CONTACT FORM SUBMISSION VALIDATION
-    // ==========================================
-    const contactForm = document.getElementById("contactForm");
+
+
+    /* =========================================================
+       4. CONTACT FORM VALIDATION
+       ========================================================= */
+
+    const contactForm =
+        document.getElementById("contactForm");
+
+
     if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
 
-            const name = document.getElementById("fullName").value.trim();
-            const email = document.getElementById("emailAddr").value.trim();
-            const phone = document.getElementById("phoneNum").value.trim();
-            const subject = document.getElementById("subjectTxt").value.trim();
-            const message = document.getElementById("messageBody").value.trim();
-            const alertBox = document.getElementById("formAlert");
+        contactForm.addEventListener(
+            "submit",
+            function (e) {
 
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const namePattern = /^[a-zA-Z\s]+$/;
-            const phonePattern = /^[0-9]+$/;
+                e.preventDefault();
 
-            if (!name || !email || !phone || !subject || !message) {
-                alertBox.className = "alert alert-danger";
-                alertBox.innerHTML = "<i class='fas fa-exclamation-triangle me-2'></i> Please fill in all fields.";
+
+                const nameElement =
+                    document.getElementById("fullName");
+
+                const emailElement =
+                    document.getElementById("emailAddr");
+
+                const phoneElement =
+                    document.getElementById("phoneNum");
+
+                const subjectElement =
+                    document.getElementById("subjectTxt");
+
+                const messageElement =
+                    document.getElementById("messageBody");
+
+                const alertBox =
+                    document.getElementById("formAlert");
+
+
+                /* Check elements */
+
+                if (
+                    !nameElement ||
+                    !emailElement ||
+                    !phoneElement ||
+                    !subjectElement ||
+                    !messageElement ||
+                    !alertBox
+                ) {
+
+                    return;
+
+                }
+
+
+                const name =
+                    nameElement.value.trim();
+
+                const email =
+                    emailElement.value.trim();
+
+                const phone =
+                    phoneElement.value.trim();
+
+                const subject =
+                    subjectElement.value.trim();
+
+                const message =
+                    messageElement.value.trim();
+
+
+                /* Validation Patterns */
+
+                const namePattern =
+                    /^[a-zA-Z\s]+$/;
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                const phonePattern =
+                    /^[0-9]+$/;
+
+
+                /* Empty Fields */
+
+                if (
+                    !name ||
+                    !email ||
+                    !phone ||
+                    !subject ||
+                    !message
+                ) {
+
+                    alertBox.className =
+                        "alert alert-danger";
+
+                    alertBox.innerHTML =
+                        "<i class='fas fa-exclamation-triangle me-2'></i>" +
+                        "Please fill in all fields.";
+
+                    alertBox.classList.remove("d-none");
+
+                    return;
+
+                }
+
+
+                /* Name Validation */
+
+                if (!namePattern.test(name)) {
+
+                    alertBox.className =
+                        "alert alert-danger";
+
+                    alertBox.innerHTML =
+                        "<i class='fas fa-user-times me-2'></i>" +
+                        "Name must contain letters only.";
+
+                    alertBox.classList.remove("d-none");
+
+                    return;
+
+                }
+
+
+                /* Phone Validation */
+
+                if (!phonePattern.test(phone)) {
+
+                    alertBox.className =
+                        "alert alert-danger";
+
+                    alertBox.innerHTML =
+                        "<i class='fas fa-phone-slash me-2'></i>" +
+                        "Phone number must contain numbers only.";
+
+                    alertBox.classList.remove("d-none");
+
+                    return;
+
+                }
+
+
+                /* Email Validation */
+
+                if (!emailPattern.test(email)) {
+
+                    alertBox.className =
+                        "alert alert-danger";
+
+                    alertBox.innerHTML =
+                        "<i class='fas fa-exclamation-circle me-2'></i>" +
+                        "Please enter a valid email address.";
+
+                    alertBox.classList.remove("d-none");
+
+                    return;
+
+                }
+
+
+                /* Success */
+
+                alertBox.className =
+                    "alert alert-success";
+
+                alertBox.innerHTML =
+                    "<i class='fas fa-check-circle me-2'></i>" +
+                    "Form submitted successfully! Thank you.";
+
                 alertBox.classList.remove("d-none");
-                return;
+
+
+                contactForm.reset();
+
             }
+        );
 
-            if (!namePattern.test(name)) {
-                alertBox.className = "alert alert-danger";
-                alertBox.innerHTML = "<i class='fas fa-user-times me-2'></i> Name must contain letters only.";
-                alertBox.classList.remove("d-none");
-                return;
-            }
-
-            if (!phonePattern.test(phone)) {
-                alertBox.className = "alert alert-danger";
-                alertBox.innerHTML = "<i class='fas fa-phone-slash me-2'></i> Phone number must contain numbers only.";
-                alertBox.classList.remove("d-none");
-                return;
-            }
-
-            if (!emailPattern.test(email)) {
-                alertBox.className = "alert alert-danger";
-                alertBox.innerHTML = "<i class='fas fa-exclamation-circle me-2'></i> Please enter a valid email address.";
-                alertBox.classList.remove("d-none");
-                return;
-            }
-
-            alertBox.className = "alert alert-success";
-            alertBox.innerHTML = "<i class='fas fa-check-circle me-2'></i> Form submitted successfully! Thank you.";
-            alertBox.classList.remove("d-none");
-
-            contactForm.reset();
-        });
     }
 
-    // ==========================================
-    // 3. STATS COUNTER ON SCROLL
-    // ==========================================
-    const counters = document.querySelectorAll('.counter');
-    const statsSection = document.getElementById('stats-section');
+
+
+    /* =========================================================
+       5. STATS COUNTER
+       ========================================================= */
+
+    const counters =
+        document.querySelectorAll("[data-target]");
+
+    const statsSection =
+        document.getElementById("stats-section");
+
     let animated = false;
 
+
     function startCounting() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
+
+        counters.forEach(function (counter) {
+
+
+            const target =
+                Number(
+                    counter.getAttribute("data-target")
+                );
+
+
             const duration = 2000;
-            const increment = target / (duration / 16);
+
+
+            const increment =
+                target / (duration / 16);
+
 
             let current = 0;
-            const updateCount = () => {
+
+
+            function updateCount() {
+
                 current += increment;
+
+
                 if (current < target) {
-                    counter.innerText = Math.ceil(current);
-                    requestAnimationFrame(updateCount);
+
+                    counter.innerText =
+                        Math.ceil(current);
+
+                    requestAnimationFrame(
+                        updateCount
+                    );
+
                 } else {
-                    counter.innerText = target;
+
+                    counter.innerText =
+                        target;
+
                 }
-            };
+
+            }
+
+
             updateCount();
+
         });
+
     }
 
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    startCounting();
-                    animated = true;
+
+    if (
+        statsSection &&
+        counters.length > 0
+    ) {
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting &&
+                                !animated
+                            ) {
+
+                                startCounting();
+
+                                animated = true;
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.5
                 }
-            });
-        }, { threshold: 0.5 });
+            );
+
 
         observer.observe(statsSection);
+
     }
 
-    // ==========================================
-    // 4. BACK TO TOP BUTTON
-    // ==========================================
-    const backToTopBtn = document.getElementById('backToTop');
+
+
+    /* =========================================================
+       6. BACK TO TOP BUTTON
+       ========================================================= */
+
+    const backToTopBtn =
+        document.getElementById("backToTop");
+
+
     if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('d-none');
-            } else {
-                backToTopBtn.classList.add('d-none');
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (window.scrollY > 300) {
+
+                    backToTopBtn.classList.remove(
+                        "d-none"
+                    );
+
+                } else {
+
+                    backToTopBtn.classList.add(
+                        "d-none"
+                    );
+
+                }
+
             }
-        });
+        );
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
 
-    // ==========================================
-    // 5. EMAILJS ADMISSION FORM INTEGRATION
-    // ==========================================
-    const admissionForm = document.getElementById('admission-form');
-    if (admissionForm) {
-        admissionForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+        backToTopBtn.addEventListener(
+            "click",
+            function () {
 
-            const submitBtn = admissionForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerText;
-            submitBtn.innerText = 'Sending...';
+                window.scrollTo({
 
-            emailjs.sendForm('service_054rzsh', 'template_dvpo7vy', this)
-                .then(function() {
-                    alert('Enquiry Submitted Successfully!');
-                    admissionForm.reset();
-                    submitBtn.innerText = originalBtnText;
-                }, function(error) {
-                    alert('Failed to send enquiry. Error: ' + JSON.stringify(error));
-                    submitBtn.innerText = originalBtnText;
+                    top: 0,
+
+                    behavior: "smooth"
+
                 });
-        });
+
+            }
+        );
+
     }
 
-<<<<<<< HEAD
+
+
+    /* =========================================================
+       7. EMAILJS ADMISSION FORM
+       ========================================================= */
+
+    const admissionForm =
+        document.getElementById("admission-form");
+
+
+    if (
+        admissionForm &&
+        typeof emailjs !== "undefined"
+    ) {
+
+        admissionForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const submitBtn =
+                    admissionForm.querySelector(
+                        'button[type="submit"]'
+                    );
+
+
+                if (!submitBtn) {
+
+                    return;
+
+                }
+
+
+                const originalBtnText =
+                    submitBtn.innerText;
+
+
+                submitBtn.disabled = true;
+
+
+                submitBtn.innerText =
+                    "Sending...";
+
+
+                emailjs
+                    .sendForm(
+                        "service_054rzsh",
+                        "template_dvpo7vy",
+                        admissionForm
+                    )
+
+                    .then(
+                        function () {
+
+
+                            alert(
+                                "Enquiry Submitted Successfully!"
+                            );
+
+
+                            admissionForm.reset();
+
+
+                            submitBtn.disabled =
+                                false;
+
+
+                            submitBtn.innerText =
+                                originalBtnText;
+
+                        }
+                    )
+
+                    .catch(
+                        function (error) {
+
+
+                            console.error(
+                                "EmailJS Error:",
+                                error
+                            );
+
+
+                            alert(
+                                "Failed to send enquiry. Please try again."
+                            );
+
+
+                            submitBtn.disabled =
+                                false;
+
+
+                            submitBtn.innerText =
+                                originalBtnText;
+
+                        }
+                    );
+
+            }
+        );
+
+    }
+
 });
-=======
-// Stats Counter Logic (Week 4)
-const counters = document.querySelectorAll('.counter');
-const statsSection = document.getElementById('stats-section');
-let started = false;
-
-if (statsSection && counters.length > 0) {
-    window.addEventListener('scroll', () => {
-        const sectionPos = statsSection.getBoundingClientRect().top;
-        const screenPos = window.innerHeight;
-
-        if (sectionPos < screenPos && !started) {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let count = 0;
-                const speed = target / 100;
-
-                const updateCount = () => {
-                    count += speed;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-
-                updateCount();
-            });
-            started = true;
-        }
-    });
-}
-// EmailJS Admission Form Integration
-const admissionForm = document.getElementById('admission-form');
-
-if (admissionForm) {
-    admissionForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const submitBtn = admissionForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.innerText;
-        submitBtn.innerText = 'Sending...';
-
-        emailjs.sendForm('service_054rzsh', 'template_dvpo7vy', this)
-            .then(function() {
-                alert('Enquiry Submitted Successfully!');
-                admissionForm.reset();
-                submitBtn.innerText = originalBtnText;
-            }, function(error) {
-                alert('Failed to send enquiry. Error: ' + JSON.stringify(error));
-                submitBtn.innerText = originalBtnText;
-            });
-    });
-}
->>>>>>> f3df67e (Connect Student Portal button to live LMS URL)

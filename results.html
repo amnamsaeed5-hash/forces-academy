@@ -1,229 +1,1612 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Results - Forces Academy Faisalabad</title>
-    
-    <!-- Bootstrap 5 CDN Link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS Link -->
+
+    <title>Results | Forces Academy Faisalabad</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- ================= DARK / LIGHT MODE CSS ================= -->
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #ffffff;
+            color: #212529;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        section,
+        .card,
+        .navbar,
+        footer,
+        .form-control,
+        .form-select,
+        .result-summary-box {
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+
+        /* ================= DARK MODE ================= */
+
+        body.dark-theme {
+            background-color: #121212 !important;
+            color: #f1f1f1 !important;
+        }
+
+        body.dark-theme section {
+            background-color: #121212 !important;
+            color: #f1f1f1 !important;
+        }
+
+        body.dark-theme .bg-light {
+            background-color: #1e1e1e !important;
+            color: #f1f1f1 !important;
+        }
+
+        body.dark-theme .card {
+            background-color: #1e1e1e !important;
+            color: #f1f1f1 !important;
+            border-color: #333333 !important;
+        }
+
+        body.dark-theme h1,
+        body.dark-theme h2,
+        body.dark-theme h3,
+        body.dark-theme h4,
+        body.dark-theme h5,
+        body.dark-theme h6 {
+            color: #ffffff !important;
+        }
+
+        body.dark-theme p {
+            color: #d0d0d0;
+        }
+
+        body.dark-theme .text-muted {
+            color: #bdbdbd !important;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        body.dark-theme .navbar {
+            background-color: #161616 !important;
+        }
+
+        body.dark-theme .navbar-brand,
+        body.dark-theme .nav-link {
+            color: #ffffff !important;
+        }
+
+        body.dark-theme .nav-link:hover,
+        body.dark-theme .nav-link.active {
+            color: #ffc107 !important;
+        }
+
+
+        /* ================= FORM ================= */
+
+        body.dark-theme .form-control,
+        body.dark-theme .form-select {
+            background-color: #242424 !important;
+            color: #ffffff !important;
+            border-color: #555555 !important;
+        }
+
+        body.dark-theme .form-control::placeholder {
+            color: #aaaaaa !important;
+        }
+
+        body.dark-theme .form-control:focus,
+        body.dark-theme .form-select:focus {
+            background-color: #242424 !important;
+            color: #ffffff !important;
+            border-color: #ffc107 !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.15);
+        }
+
+
+        /* ================= RESULT TABLE ================= */
+
+        body.dark-theme .table {
+            color: #ffffff !important;
+            border-color: #444444 !important;
+        }
+
+        body.dark-theme .table td,
+        body.dark-theme .table th {
+            background-color: #1e1e1e !important;
+            color: #ffffff !important;
+            border-color: #444444 !important;
+        }
+
+        body.dark-theme .table-dark th {
+            background-color: #080808 !important;
+            color: #ffffff !important;
+        }
+
+
+        /* ================= SUMMARY BOXES ================= */
+
+        .result-summary-box {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        body.dark-theme .result-summary-box {
+            background-color: #252525 !important;
+            border: 1px solid #3a3a3a;
+        }
+
+        body.dark-theme .result-summary-box small {
+            color: #bbbbbb !important;
+        }
+
+        body.dark-theme .result-summary-box h4 {
+            color: #ffc107 !important;
+        }
+
+
+        /* ================= THEME BUTTON ================= */
+
+        .theme-toggle-btn {
+            width: 42px;
+            height: 38px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+        body.dark-theme .theme-toggle-btn {
+            background-color: #ffc107 !important;
+            border-color: #ffc107 !important;
+            color: #111111 !important;
+        }
+
+
+        /* ================= RESULT BADGE ================= */
+
+        .result-status {
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        body.dark-theme footer {
+            background-color: #080808 !important;
+        }
+
+    </style>
+
+
+    <!-- ================= APPLY SAVED THEME ================= -->
+
+    <script>
+
+        (function () {
+
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+
+                document.documentElement.classList.add("dark-mode-loading");
+
+            }
+
+        })();
+
+    </script>
+
 </head>
+
+
 <body>
 
-    <!-- NAVBAR SECTION -->
-    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Forces Academy</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto align-items-center gap-lg-2">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="results.html">Results</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-warning fw-semibold px-3" href="https://forces-academy-lms.infinityfreeapp.com/">Student Portal</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="container my-5">
-        
-        <!-- Page Heading & Intro Section -->
-        <section class="text-center mb-5">
-            <h1 class="fw-bold mb-3" style="color: #0a1f44;">Academic Achievements & Board Results</h1>
-            <p class="lead text-muted mx-auto" style="max-width: 700px;">
-                We take immense pride in the outstanding performance of our students in Board Exams and Competitive Entry Tests.
-            </p>
-        </section>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
-        <!-- WEEK 3 REQUIREMENT: Filter Bar UI -->
-        <div class="row g-3 mb-4 p-3 bg-light rounded shadow-sm text-start border">
-            <div class="col-md-5">
-                <label for="filterClass" class="form-label fw-semibold text-dark">Select Class / Course</label>
-                <select id="filterClass" class="form-select">
-                    <option selected>All Classes</option>
-                    <option>Matric Science</option>
-                    <option>FSc Pre-Engineering</option>
-                    <option>ICS (Computer Science)</option>
-                    <option>MDCAT Entry Test</option>
-                </select>
-            </div>
-            <div class="col-md-5">
-                <label for="filterYear" class="form-label fw-semibold text-dark">Select Year</label>
-                <select id="filterYear" class="form-select">
-                    <option selected>2026</option>
-                    <option>2025</option>
-                    <option>2024</option>
-                </select>
-            </div>
-            <div class="col-md-2 d-flex align-items-end">
-                <button type="button" class="btn btn-primary w-100" style="background-color: #0a1f44; border: none;">Filter</button>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
-        <!-- Academic Toppers Table Section -->
-        <section class="mb-5">
-            <h3 class="fw-bold mb-4" style="color: #0a1f44;">
-                <i class="fas fa-trophy text-warning me-2"></i>Our Session Toppers
-            </h3>
-            
-            <!-- Responsive Table Container -->
-            <div class="table-responsive shadow-sm border rounded bg-white">
-                <table class="table table-hover table-striped align-middle mb-0">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col" class="ps-4">Roll No</th>
-                            <th scope="col">Student Name</th>
-                            <th scope="col">Program/Class</th>
-                            <th scope="col">Marks / Percentage</th>
-                            <th scope="col" class="pe-4">Position / Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Row 1 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-9821</td>
-                            <td>Ayesha Khan</td>
-                            <td>FSc Pre-Medical</td>
-                            <td><span class="badge bg-success fx-6">1045 / 1100</span></td>
-                            <td class="pe-4 text-success fw-bold"><i class="fas fa-medal me-1"></i> 1st in Academy</td>
-                        </tr>
-                        <!-- Row 2 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-9540</td>
-                            <td>Muhammad Bilal</td>
-                            <td>FSc Pre-Engineering</td>
-                            <td><span class="badge bg-success fx-6">1032 / 1100</span></td>
-                            <td class="pe-4 text-success fw-bold"><i class="fas fa-medal me-1"></i> 2nd in Academy</td>
-                        </tr>
-                        <!-- Row 3 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-9112</td>
-                            <td>Zainab Fatima</td>
-                            <td>ICS (Computer Science)</td>
-                            <td><span class="badge bg-info text-dark fx-6">925 / 1100</span></td>
-                            <td class="pe-4 text-muted fw-bold">A+ Grade</td>
-                        </tr>
-                        <!-- Row 4 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-8765</td>
-                            <td>Hamza Ali</td>
-                            <td>Matric Science</td>
-                            <td><span class="badge bg-success fx-6">1078 / 1100</span></td>
-                            <td class="pe-4 text-success fw-bold"><i class="fas fa-star me-1"></i> Outstanding</td>
-                        </tr>
-                        <!-- Row 5 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-7619</td>
-                            <td>Sana Ahmed</td>
-                            <td>MDCAT Entry Test</td>
-                            <td><span class="badge bg-primary fx-6">182 / 200</span></td>
-                            <td class="pe-4 text-primary fw-bold">KMU Secured Seat</td>
-                        </tr>
-                        <!-- Row 6 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-5432</td>
-                            <td>Ali Raza</td>
-                            <td>ICS (Computer Science)</td>
-                            <td><span class="badge bg-info text-dark fx-6">890 / 1100</span></td>
-                            <td class="pe-4 text-muted fw-bold">A Grade</td>
-                        </tr>
-                        <!-- Row 7 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-4321</td>
-                            <td>Fatima Noor</td>
-                            <td>FSc Pre-Medical</td>
-                            <td><span class="badge bg-success fx-6">1015 / 1100</span></td>
-                            <td class="pe-4 text-muted fw-bold">A+ Grade</td>
-                        </tr>
-                        <!-- Row 8 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-3210</td>
-                            <td>Zain Mehmood</td>
-                            <td>Matric Science</td>
-                            <td><span class="badge bg-success fx-6">995 / 1100</span></td>
-                            <td class="pe-4 text-muted fw-bold">A+ Grade</td>
-                        </tr>
-                        <!-- Row 9 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-2109</td>
-                            <td>Bilal Khan</td>
-                            <td>FSc Pre-Engineering</td>
-                            <td><span class="badge bg-info text-dark fx-6">850 / 1100</span></td>
-                            <td class="pe-4 text-muted fw-bold">A Grade</td>
-                        </tr>
-                        <!-- Row 10 -->
-                        <tr>
-                            <td class="ps-4 fw-semibold">FA-1098</td>
-                            <td>Maryambibi</td>
-                            <td>MDCAT Entry Test</td>
-                            <td><span class="badge bg-primary fx-6">175 / 200</span></td>
-                            <td class="pe-4 text-success fw-bold">UHS Secured Seat</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <div class="container">
 
-        <!-- WEEK 3 REQUIREMENT: Administrative Note -->
-        <div class="alert alert-info mt-4 text-start shadow-sm border-0 d-flex align-items-center" role="alert">
-            <i class="fas fa-info-circle fa-lg me-3 text-info"></i>
-            <div>
-                <strong>Note:</strong> Results are updated by administration. Contact admin for queries.
-            </div>
+        <a class="navbar-brand fw-bold" href="index.html">
+
+            <i class="bi bi-shield-fill-check me-2"></i>
+
+            Forces Academy
+
+        </a>
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                        About
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.html">
+                        Courses
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="admissions.html">
+                        Admissions
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="results.html">
+                        Results
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">
+                        Gallery
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+
+                <!-- DARK / LIGHT BUTTON -->
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                    <button
+                        id="theme-toggle"
+                        type="button"
+                        class="btn btn-outline-light theme-toggle-btn"
+                        title="Toggle Dark / Light Mode"
+                        aria-label="Toggle Dark / Light Mode">
+
+                        <i id="theme-icon"
+                           class="bi bi-moon-fill">
+                        </i>
+
+                    </button>
+
+                </li>
+
+
+                <!-- STUDENT PORTAL -->
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                    <a href="https://forces-academy-lms.infinityfreeapp.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-warning px-4">
+
+                        <i class="bi bi-person-badge me-1"></i>
+
+                        Student Portal
+
+                    </a>
+
+                </li>
+
+            </ul>
+
         </div>
 
-    </main>
+    </div>
 
-    <!-- FOOTER SECTION -->
-    <footer class="bg-dark text-white pt-5 pb-4">
-        <div class="container text-center text-md-start">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Forces Academy</h5>
-                    <p>Providing quality education and training to shape your bright future.</p>
+</nav>
+
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<section class="py-5 bg-dark text-white text-center">
+
+    <div class="container py-4">
+
+        <i class="bi bi-award-fill text-warning display-4"></i>
+
+        <h1 class="display-4 fw-bold mt-3">
+            Student Results
+        </h1>
+
+        <p class="lead mt-3 mb-0">
+            Search your academic performance using your roll number.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SEARCH RESULT
+========================================================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+
+                <div class="card border-0 shadow-lg rounded-4">
+
+                    <div class="card-body p-4 p-md-5 text-center">
+
+
+                        <div class="mb-4">
+
+                            <i class="bi bi-search display-4 text-warning"></i>
+
+                        </div>
+
+
+                        <h2 class="fw-bold">
+                            Search Your Result
+                        </h2>
+
+
+                        <p class="text-muted mb-4">
+
+                            Enter your roll number below to view your
+                            examination result.
+
+                        </p>
+
+
+                        <form id="resultSearchForm">
+
+                            <div class="input-group input-group-lg">
+
+                                <input
+                                    type="text"
+                                    id="rollNumber"
+                                    class="form-control"
+                                    placeholder="Example: FA-1001"
+                                    autocomplete="off"
+                                    required>
+
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-warning px-4">
+
+                                    <i class="bi bi-search me-2"></i>
+
+                                    Search
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <!-- SAMPLE ROLL NUMBERS -->
+
+                        <div class="mt-4">
+
+                            <small class="text-muted d-block mb-2">
+                                Try these sample roll numbers:
+                            </small>
+
+                            <span class="badge text-bg-secondary me-1">
+                                FA-1001
+                            </span>
+
+                            <span class="badge text-bg-secondary me-1">
+                                FA-1002
+                            </span>
+
+                            <span class="badge text-bg-secondary me-1">
+                                FA-1003
+                            </span>
+
+                            <span class="badge text-bg-secondary me-1">
+                                FA-1004
+                            </span>
+
+                            <span class="badge text-bg-secondary me-1">
+                                FA-1005
+                            </span>
+
+                            <span class="badge text-bg-secondary">
+                                FA-1006
+                            </span>
+
+                        </div>
+
+
+                        <div id="searchMessage"
+                             class="mt-3">
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
-                    <p><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></p>
-                    <p><a href="about.html" class="text-white" style="text-decoration: none;">About Us</a></p>
-                    <p><a href="courses.html" class="text-white" style="text-decoration: none;">Courses</a></p>
-                    <p><a href="admissions.html" class="text-white" style="text-decoration: none;">Admissions</a></p>
-                </div>
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
-                    <p><i class="fas fa-home me-3"></i> Faisalabad, Pakistan</p>
-                    <p><i class="fas fa-envelope me-3"></i> info@forcesacademy.com</p>
-                    <p><i class="fas fa-phone me-3"></i> +92 300 0000000</p>
-                </div>
+
             </div>
-            <hr class="mb-4">
-            <div class="row align-items-center">
-                <div class="col-md-7 col-lg-8">
-                    <p>© 2026 Copyright All rights reserved by: 
-                        <a href="#" style="text-decoration: none;"><strong class="text-warning">Forces Academy Faisalabad</strong></a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RESULT CARD
+========================================================= -->
+
+<section id="resultSection"
+         class="pb-5"
+         style="display: none;">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+
+                    <!-- RESULT HEADER -->
+
+                    <div class="bg-dark text-white p-4 text-center">
+
+                        <i class="bi bi-award-fill text-warning display-5"></i>
+
+                        <h2 class="fw-bold mt-2 mb-1">
+                            Examination Result
+                        </h2>
+
+                        <p class="mb-0 text-light">
+                            Forces Academy Faisalabad
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STUDENT INFORMATION -->
+
+                    <div class="card-body p-4 p-md-5">
+
+
+                        <div class="row g-4 mb-5">
+
+
+                            <div class="col-md-6">
+
+                                <p class="text-muted mb-1">
+                                    Student Name
+                                </p>
+
+                                <h5 id="studentName"
+                                    class="fw-bold">
+                                </h5>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <p class="text-muted mb-1">
+                                    Roll Number
+                                </p>
+
+                                <h5 id="studentRoll"
+                                    class="fw-bold">
+                                </h5>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <p class="text-muted mb-1">
+                                    Course
+                                </p>
+
+                                <h5 id="studentCourse"
+                                    class="fw-bold">
+                                </h5>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <p class="text-muted mb-1">
+                                    Examination
+                                </p>
+
+                                <h5 id="studentExam"
+                                    class="fw-bold">
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- RESULT TABLE -->
+
+                        <h5 class="fw-bold mb-3">
+
+                            <i class="bi bi-table text-warning me-2"></i>
+
+                            Subject-wise Marks
+
+                        </h5>
+
+
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered align-middle">
+
+                                <thead class="table-dark">
+
+                                    <tr>
+
+                                        <th>
+                                            Subject
+                                        </th>
+
+                                        <th>
+                                            Total Marks
+                                        </th>
+
+                                        <th>
+                                            Obtained Marks
+                                        </th>
+
+                                        <th>
+                                            Grade
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="resultTable">
+                                </tbody>
+
+
+                                <tfoot>
+
+                                    <tr class="fw-bold">
+
+                                        <td>
+                                            Total
+                                        </td>
+
+                                        <td id="totalMarks">
+                                        </td>
+
+                                        <td id="obtainedMarks">
+                                        </td>
+
+                                        <td id="overallGrade">
+                                        </td>
+
+                                    </tr>
+
+                                </tfoot>
+
+                            </table>
+
+                        </div>
+
+
+
+                        <!-- RESULT SUMMARY -->
+
+                        <div class="row g-3 mt-4">
+
+
+                            <div class="col-md-4">
+
+                                <div class="result-summary-box">
+
+                                    <small>
+                                        Percentage
+                                    </small>
+
+                                    <h4 id="percentage"
+                                        class="fw-bold mt-1 mb-0">
+                                    </h4>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <div class="result-summary-box">
+
+                                    <small>
+                                        Overall Grade
+                                    </small>
+
+                                    <h4 id="grade"
+                                        class="fw-bold mt-1 mb-0">
+                                    </h4>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <div class="result-summary-box">
+
+                                    <small>
+                                        Result Status
+                                    </small>
+
+                                    <h4 id="status"
+                                        class="fw-bold mt-1 mb-0">
+                                    </h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- SEARCH AGAIN -->
+
+                        <div class="text-center mt-5">
+
+                            <button
+                                type="button"
+                                onclick="searchAgain()"
+                                class="btn btn-outline-dark">
+
+                                <i class="bi bi-arrow-left me-2"></i>
+
+                                Search Another Result
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SAMPLE RESULT INFORMATION
+========================================================= -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-warning fw-semibold">
+                RESULT SYSTEM
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                How to Check Your Result
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-123 display-5 text-warning"></i>
+
+                    <h4 class="fw-bold mt-3">
+                        Enter Roll Number
+                    </h4>
+
+                    <p class="text-muted">
+                        Enter your assigned academy roll number in the
+                        search box above.
                     </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Bootstrap 5 JavaScript Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS Link -->
-    <script src="js/main.js"></script>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-search display-5 text-warning"></i>
+
+                    <h4 class="fw-bold mt-3">
+                        Search Result
+                    </h4>
+
+                    <p class="text-muted">
+                        Click the search button to view your subject-wise
+                        marks and academic performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-bar-chart-fill display-5 text-warning"></i>
+
+                    <h4 class="fw-bold mt-3">
+                        View Performance
+                    </h4>
+
+                    <p class="text-muted">
+                        Check your total marks, percentage, grade and
+                        result status.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HELP SECTION
+========================================================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <i class="bi bi-info-circle-fill text-warning display-6"></i>
+
+            <h4 class="fw-bold mt-3">
+                Need Help?
+            </h4>
+
+            <p class="text-muted">
+
+                If you cannot find your result, please contact the
+                academy administration.
+
+            </p>
+
+            <a href="contact.html"
+               class="btn btn-dark">
+
+                <i class="bi bi-telephone-fill me-2"></i>
+
+                Contact Administration
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-black text-white py-4">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-md-6 text-center text-md-start">
+
+                <h5 class="fw-bold">
+
+                    <i class="bi bi-shield-fill-check me-2"></i>
+
+                    Forces Academy Faisalabad
+
+                </h5>
+
+                <p class="text-secondary mb-0">
+
+                    Excellence • Discipline • Success
+
+                </p>
+
+            </div>
+
+
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+
+                <a href="index.html"
+                   class="text-white text-decoration-none me-3">
+
+                    Home
+
+                </a>
+
+
+                <a href="contact.html"
+                   class="text-white text-decoration-none">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary">
+
+
+        <p class="text-center text-secondary mb-0">
+
+            © 2026 Forces Academy Faisalabad.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- =========================================================
+     DARK / LIGHT MODE JAVASCRIPT
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const themeButton = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+
+
+    function updateTheme(isDark) {
+
+        if (isDark) {
+
+            document.body.classList.add("dark-theme");
+
+            themeIcon.classList.remove("bi-moon-fill");
+            themeIcon.classList.add("bi-sun-fill");
+
+            themeButton.classList.remove("btn-outline-light");
+            themeButton.classList.add("btn-warning");
+
+            themeButton.setAttribute(
+                "title",
+                "Switch to Light Mode"
+            );
+
+        } else {
+
+            document.body.classList.remove("dark-theme");
+
+            themeIcon.classList.remove("bi-sun-fill");
+            themeIcon.classList.add("bi-moon-fill");
+
+            themeButton.classList.remove("btn-warning");
+            themeButton.classList.add("btn-outline-light");
+
+            themeButton.setAttribute(
+                "title",
+                "Switch to Dark Mode"
+            );
+
+        }
+
+    }
+
+
+    /* LOAD SAVED THEME */
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        updateTheme(true);
+
+    } else {
+
+        updateTheme(false);
+
+    }
+
+
+    /* TOGGLE THEME */
+
+    themeButton.addEventListener("click", function () {
+
+        const isDark =
+            document.body.classList.contains("dark-theme");
+
+        const newTheme = !isDark;
+
+        updateTheme(newTheme);
+
+        localStorage.setItem(
+            "theme",
+            newTheme ? "dark" : "light"
+        );
+
+    });
+
+});
+
+</script>
+
+
+
+<!-- =========================================================
+     RESULT JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   SAMPLE STUDENT DATA
+========================================================= */
+
+const students = {
+
+
+    "FA-1001": {
+
+        name: "Muhammad Ali",
+        course: "PMA Long Course",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "English",
+                total: 100,
+                obtained: 82,
+                grade: "A"
+            },
+
+            {
+                name: "Mathematics",
+                total: 100,
+                obtained: 88,
+                grade: "A"
+            },
+
+            {
+                name: "General Knowledge",
+                total: 100,
+                obtained: 76,
+                grade: "B+"
+            },
+
+            {
+                name: "Intelligence",
+                total: 100,
+                obtained: 91,
+                grade: "A+"
+            }
+
+        ]
+
+    },
+
+
+    "FA-1002": {
+
+        name: "Ayesha Khan",
+        course: "ISSB Preparation",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "English",
+                total: 100,
+                obtained: 89,
+                grade: "A"
+            },
+
+            {
+                name: "Mathematics",
+                total: 100,
+                obtained: 94,
+                grade: "A+"
+            },
+
+            {
+                name: "General Knowledge",
+                total: 100,
+                obtained: 86,
+                grade: "A"
+            },
+
+            {
+                name: "Intelligence",
+                total: 100,
+                obtained: 92,
+                grade: "A+"
+            }
+
+        ]
+
+    },
+
+
+    "FA-1003": {
+
+        name: "Hassan Ahmed",
+        course: "Forces Entry Preparation",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "English",
+                total: 100,
+                obtained: 72,
+                grade: "B"
+            },
+
+            {
+                name: "Mathematics",
+                total: 100,
+                obtained: 81,
+                grade: "A"
+            },
+
+            {
+                name: "General Knowledge",
+                total: 100,
+                obtained: 74,
+                grade: "B"
+            },
+
+            {
+                name: "Intelligence",
+                total: 100,
+                obtained: 85,
+                grade: "A"
+            }
+
+        ]
+
+    },
+
+
+    "FA-1004": {
+
+        name: "Zainab Fatima",
+        course: "Academic Test Preparation",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "English",
+                total: 100,
+                obtained: 95,
+                grade: "A+"
+            },
+
+            {
+                name: "Mathematics",
+                total: 100,
+                obtained: 91,
+                grade: "A+"
+            },
+
+            {
+                name: "General Knowledge",
+                total: 100,
+                obtained: 88,
+                grade: "A"
+            },
+
+            {
+                name: "Current Affairs",
+                total: 100,
+                obtained: 90,
+                grade: "A+"
+            }
+
+        ]
+
+    },
+
+
+    "FA-1005": {
+
+        name: "Usman Raza",
+        course: "Interview Preparation",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "Communication",
+                total: 100,
+                obtained: 78,
+                grade: "B+"
+            },
+
+            {
+                name: "General Knowledge",
+                total: 100,
+                obtained: 83,
+                grade: "A"
+            },
+
+            {
+                name: "Confidence Test",
+                total: 100,
+                obtained: 87,
+                grade: "A"
+            },
+
+            {
+                name: "Interview Skills",
+                total: 100,
+                obtained: 80,
+                grade: "A"
+            }
+
+        ]
+
+    },
+
+
+    "FA-1006": {
+
+        name: "Hamza Ahmed",
+        course: "Personality Development",
+        exam: "Monthly Assessment",
+
+        subjects: [
+
+            {
+                name: "Leadership",
+                total: 100,
+                obtained: 69,
+                grade: "B"
+            },
+
+            {
+                name: "Communication",
+                total: 100,
+                obtained: 75,
+                grade: "B+"
+            },
+
+            {
+                name: "Teamwork",
+                total: 100,
+                obtained: 82,
+                grade: "A"
+            },
+
+            {
+                name: "Discipline",
+                total: 100,
+                obtained: 88,
+                grade: "A"
+            }
+
+        ]
+
+    }
+
+};
+
+
+
+/* =========================================================
+   SEARCH FORM
+========================================================= */
+
+document
+    .getElementById("resultSearchForm")
+    .addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const rollNumber = document
+            .getElementById("rollNumber")
+            .value
+            .trim()
+            .toUpperCase();
+
+
+        const message =
+            document.getElementById("searchMessage");
+
+
+        const student =
+            students[rollNumber];
+
+
+        /* ================= NO RESULT ================= */
+
+        if (!student) {
+
+            message.innerHTML = `
+
+                <div class="alert alert-danger">
+
+                    <i class="bi bi-exclamation-circle-fill me-2"></i>
+
+                    No result found for roll number
+                    <strong>${rollNumber}</strong>.
+
+                    <br>
+
+                    Please check your roll number and try again.
+
+                </div>
+
+            `;
+
+
+            document
+                .getElementById("resultSection")
+                .style.display = "none";
+
+
+            return;
+
+        }
+
+
+
+        /* ================= CALCULATE TOTALS ================= */
+
+        let totalMarks = 0;
+        let obtainedMarks = 0;
+
+        let tableHTML = "";
+
+
+        student.subjects.forEach(function (subject) {
+
+            totalMarks += subject.total;
+
+            obtainedMarks += subject.obtained;
+
+
+            tableHTML += `
+
+                <tr>
+
+                    <td>
+                        ${subject.name}
+                    </td>
+
+                    <td>
+                        ${subject.total}
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${subject.obtained}
+                        </strong>
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${subject.grade}
+                        </strong>
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+
+        /* ================= PERCENTAGE ================= */
+
+        const percentage =
+            ((obtainedMarks / totalMarks) * 100)
+            .toFixed(2);
+
+
+
+        /* ================= OVERALL GRADE ================= */
+
+        let overallGrade;
+
+
+        if (percentage >= 90) {
+
+            overallGrade = "A+";
+
+        } else if (percentage >= 80) {
+
+            overallGrade = "A";
+
+        } else if (percentage >= 70) {
+
+            overallGrade = "B+";
+
+        } else if (percentage >= 60) {
+
+            overallGrade = "B";
+
+        } else if (percentage >= 50) {
+
+            overallGrade = "C";
+
+        } else {
+
+            overallGrade = "F";
+
+        }
+
+
+
+        /* ================= STATUS ================= */
+
+        const status =
+            percentage >= 50
+                ? "PASS"
+                : "FAIL";
+
+
+
+        /* ================= DISPLAY STUDENT ================= */
+
+        document.getElementById("studentName")
+            .textContent = student.name;
+
+
+        document.getElementById("studentRoll")
+            .textContent = rollNumber;
+
+
+        document.getElementById("studentCourse")
+            .textContent = student.course;
+
+
+        document.getElementById("studentExam")
+            .textContent = student.exam;
+
+
+
+        /* ================= DISPLAY TABLE ================= */
+
+        document.getElementById("resultTable")
+            .innerHTML = tableHTML;
+
+
+        document.getElementById("totalMarks")
+            .textContent = totalMarks;
+
+
+        document.getElementById("obtainedMarks")
+            .textContent = obtainedMarks;
+
+
+        document.getElementById("overallGrade")
+            .textContent = overallGrade;
+
+
+
+        /* ================= DISPLAY SUMMARY ================= */
+
+        document.getElementById("percentage")
+            .textContent = percentage + "%";
+
+
+        document.getElementById("grade")
+            .textContent = overallGrade;
+
+
+        document.getElementById("status")
+            .textContent = status;
+
+
+
+        /* ================= HIDE ERROR MESSAGE ================= */
+
+        message.innerHTML = "";
+
+
+
+        /* ================= SHOW RESULT ================= */
+
+        document.getElementById("resultSection")
+            .style.display = "block";
+
+
+
+        /* ================= SCROLL TO RESULT ================= */
+
+        document.getElementById("resultSection")
+            .scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+    });
+
+
+
+/* =========================================================
+   SEARCH AGAIN
+========================================================= */
+
+function searchAgain() {
+
+    document
+        .getElementById("resultSection")
+        .style.display = "none";
+
+
+    document
+        .getElementById("rollNumber")
+        .value = "";
+
+
+    document
+        .getElementById("searchMessage")
+        .innerHTML = "";
+
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
+}
+
+</script>
+
+
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+
+
 </body>
+
 </html>
+```

@@ -1,123 +1,1385 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Gallery - Forces Academy Faisalabad</title>
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- GLightbox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+
+    <title>Gallery | Forces Academy Faisalabad</title>
+
+    <!-- ================= BOOTSTRAP CSS ================= -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- ================= BOOTSTRAP ICONS ================= -->
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- ================= GOOGLE FONT ================= -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- ================= CUSTOM CSS ================= -->
+
     <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- ================= PAGE CSS ================= -->
+
+    <style>
+
+        /* =========================================================
+           GALLERY PAGE
+        ========================================================= */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease,
+                        color 0.3s ease;
+        }
+
+
+        /* =========================================================
+           DARK MODE
+        ========================================================= */
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+
+        body.dark-mode .bg-light {
+            background-color: #1b1b1b !important;
+        }
+
+
+        body.dark-mode .text-muted {
+            color: #bdbdbd !important;
+        }
+
+
+        body.dark-mode .gallery-intro {
+            color: #bdbdbd;
+        }
+
+
+        body.dark-mode .filter-btn.btn-outline-dark {
+            color: #ffffff;
+            border-color: #777;
+        }
+
+
+        body.dark-mode .filter-btn.btn-outline-dark:hover {
+            background-color: #ffc107;
+            color: #000;
+            border-color: #ffc107;
+        }
+
+
+        /* =========================================================
+           THEME BUTTON
+        ========================================================= */
+
+        .theme-toggle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+
+        .theme-toggle:hover {
+            background-color: #ffc107;
+            color: #000000;
+            transform: rotate(15deg);
+        }
+
+
+        /* =========================================================
+           GALLERY CARD
+        ========================================================= */
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            height: 300px;
+            background: #222;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.20);
+        }
+
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+
+        /* =========================================================
+           IMAGE OVERLAY
+        ========================================================= */
+
+        .gallery-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 25px 20px 20px;
+
+            color: #ffffff;
+
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.90),
+                rgba(0,0,0,0.10)
+            );
+
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+
+        .gallery-overlay h5 {
+            font-size: 18px;
+        }
+
+
+        .gallery-overlay p {
+            font-size: 13px;
+            color: #dddddd;
+        }
+
+
+        .view-image {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           FILTER BUTTONS
+        ========================================================= */
+
+        .filter-btn {
+            margin: 5px;
+            border-radius: 30px;
+            padding: 9px 20px;
+            transition: all 0.3s ease;
+        }
+
+
+        /* =========================================================
+           GALLERY ITEM ANIMATION
+        ========================================================= */
+
+        .gallery-item {
+            transition: all 0.4s ease;
+        }
+
+
+        .gallery-item.hide-item {
+            display: none;
+        }
+
+
+        .gallery-item.show-item {
+            animation: galleryShow 0.5s ease;
+        }
+
+
+        @keyframes galleryShow {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        #modalImage {
+            max-height: 75vh;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+
+        .modal-content {
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+           DARK MODE MODAL
+        ========================================================= */
+
+        body.dark-mode .modal-content {
+            background-color: #181818 !important;
+        }
+
+
+        /* =========================================================
+           GALLERY COUNTER
+        ========================================================= */
+
+        .gallery-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: rgba(255,193,7,0.12);
+            color: #d99f00;
+
+            padding: 8px 16px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        body.dark-mode .gallery-count {
+            color: #ffc107;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 767px) {
+
+            .gallery-card {
+                height: 260px;
+            }
+
+            .gallery-overlay {
+                opacity: 1;
+            }
+
+            .theme-toggle {
+                margin-top: 12px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
-    <!-- NAVBAR SECTION -->
-    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav" style="background-color: #0a1f44;">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="index.html">Forces Academy</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto align-items-center gap-lg-2">
-                    <li class="nav-item"><a class="nav-link text-white-50" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="admissions.html">Admissions</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="results.html">Results</a></li>
-                    <li class="nav-item"><a class="nav-link active text-white" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-warning fw-semibold px-3" href="https://forces-academy-lms.infinityfreeapp.com/">Student Portal</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- GALLERY SECTION -->
-    <main class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <!-- Heading & Intro -->
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container">
+
+
+        <!-- LOGO -->
+
+        <a class="navbar-brand fw-bold"
+           href="index.html">
+
+            <i class="bi bi-shield-fill-check me-2"></i>
+
+            Forces Academy
+
+        </a>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="collapse navbar-collapse"
+             id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="about.html">
+                        About
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="courses.html">
+                        Courses
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="admissions.html">
+                        Admissions
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="results.html">
+                        Results
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="gallery.html">
+                        Gallery
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+
+                <!-- THEME BUTTON -->
+
+                <li class="nav-item ms-lg-3">
+
+                    <button type="button"
+                            class="theme-toggle"
+                            id="themeToggle"
+                            aria-label="Toggle dark mode">
+
+                        <i class="bi bi-moon-fill"
+                           id="themeIcon"></i>
+
+                    </button>
+
+                </li>
+
+
+                <!-- STUDENT PORTAL -->
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+
+                    <a href="admissions.html"
+                       class="btn btn-warning px-4">
+
+                        Student Portal
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<section class="py-5 bg-dark text-white text-center">
+
+    <div class="container py-4">
+
+        <span class="text-warning fw-semibold">
+            OUR MEMORIES
+        </span>
+
+        <h1 class="display-4 fw-bold mt-2">
+            Academy Gallery
+        </h1>
+
+        <p class="lead mt-3 mb-0">
+            Explore moments from Forces Academy Faisalabad.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GALLERY SECTION
+========================================================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <!-- INTRO -->
+
         <div class="text-center mb-5">
-            <h1 class="fw-bold display-6" style="color: #0a1f44;">Campus Life Gallery</h1>
-            <p class="lead text-muted mx-auto" style="max-width: 600px;">Take a visual tour of our campus events, academic milestones, and sports activities.</p>
-        </div>
 
-        <!-- Filter Buttons -->
-        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
-            <button class="btn btn-outline-primary active filter-btn px-4 py-2" data-filter="all">All</button>
-            <button class="btn btn-outline-primary filter-btn px-4 py-2" data-filter="events">Events</button>
-            <button class="btn btn-outline-primary filter-btn px-4 py-2" data-filter="sports">Sports</button>
-            <button class="btn btn-outline-primary filter-btn px-4 py-2" data-filter="academic">Academic</button>
-        </div>
+            <span class="text-warning fw-semibold">
+                LIFE AT ACADEMY
+            </span>
 
-        <!-- Photo Grid -->
-        <div class="row g-4" id="gallery-grid">
-            
-            <!-- Academic Image 1 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item academic">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Classroom Study">
-                    </a>
-                </div>
-            </div>
+            <h2 class="fw-bold mt-2">
+                Training, Learning & Achievement
+            </h2>
 
-            <!-- Events Image 1 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item events">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Annual Seminar">
-                    </a>
-                </div>
-            </div>
+            <p class="gallery-intro text-muted mt-3 mx-auto"
+               style="max-width: 720px;">
 
-            <!-- Sports Image 1 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item sports">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Sports Day">
-                    </a>
-                </div>
-            </div>
+                Take a look at our learning environment, preparation
+                sessions, student activities, training and academy events.
 
-            <!-- Academic Image 2 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item academic">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Exam Prep">
-                    </a>
-                </div>
-            </div>
+            </p>
 
-            <!-- Events Image 2 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item events">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Ceremony Day">
-                    </a>
-                </div>
-            </div>
 
-            <!-- Sports Image 2 -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 gallery-item sports">
-                <div class="card h-100 shadow-sm border-0 overflow-hidden gallery-card">
-                    <a href="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200" class="glightbox" data-gallery="campus-gallery">
-                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=500" class="card-img-top img-fluid img-hover gallery-img" alt="Training Session">
-                    </a>
-                </div>
+            <div class="mt-4">
+
+                <span class="gallery-count">
+
+                    <i class="bi bi-images"></i>
+
+                    9 Gallery Moments
+
+                </span>
+
             </div>
 
         </div>
-    </main>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GLightbox JS CDN -->
-    <script src="https://cdn.jsdelivr.net/gh/biati-digital/glightbox@toc/dist/js/glightbox.min.js"></script>
-    <!-- Custom JS File Links -->
-    <script src="js/main.js"></script>
+
+
+        <!-- =====================================================
+             FILTER BUTTONS
+        ====================================================== -->
+
+        <div class="text-center mb-5">
+
+
+            <button class="btn btn-dark filter-btn active"
+                    data-filter="all">
+
+                <i class="bi bi-grid-fill me-1"></i>
+
+                All
+
+            </button>
+
+
+            <button class="btn btn-outline-dark filter-btn"
+                    data-filter="classroom">
+
+                <i class="bi bi-book me-1"></i>
+
+                Classrooms
+
+            </button>
+
+
+            <button class="btn btn-outline-dark filter-btn"
+                    data-filter="training">
+
+                <i class="bi bi-person-arms-up me-1"></i>
+
+                Training
+
+            </button>
+
+
+            <button class="btn btn-outline-dark filter-btn"
+                    data-filter="events">
+
+                <i class="bi bi-calendar-event me-1"></i>
+
+                Events
+
+            </button>
+
+
+            <button class="btn btn-outline-dark filter-btn"
+                    data-filter="students">
+
+                <i class="bi bi-people-fill me-1"></i>
+
+                Students
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             GALLERY GRID
+        ====================================================== -->
+
+        <div class="row g-4"
+             id="galleryGrid">
+
+
+            <!-- =================================================
+                 IMAGE 1
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="classroom">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85"
+                         alt="Students studying in classroom"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Classroom Learning
+                            </h5>
+
+                            <p class="mb-0">
+                                Academic Preparation
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Classroom Learning">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 2
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="training">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1200&q=85"
+                         alt="Fitness training session"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Physical Training
+                            </h5>
+
+                            <p class="mb-0">
+                                Fitness & Discipline
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Physical Training">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 3
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="events">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=85"
+                         alt="Academy event"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Academy Event
+                            </h5>
+
+                            <p class="mb-0">
+                                Special Event
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Academy Event">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 4
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="students">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&q=85"
+                         alt="Students group activity"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Student Activities
+                            </h5>
+
+                            <p class="mb-0">
+                                Teamwork & Confidence
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Student Activities">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 5
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="training">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=85"
+                         alt="Fitness preparation"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Fitness Preparation
+                            </h5>
+
+                            <p class="mb-0">
+                                Training Program
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Fitness Preparation">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 6
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="events">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=85"
+                         alt="Academy ceremony"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Academy Ceremony
+                            </h5>
+
+                            <p class="mb-0">
+                                Achievement Event
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Academy Ceremony">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 7
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="classroom">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85"
+                         alt="Students classroom session"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Study Session
+                            </h5>
+
+                            <p class="mb-0">
+                                Focused Learning
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Study Session">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 8
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="students">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85"
+                         alt="Student teamwork"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Student Teamwork
+                            </h5>
+
+                            <p class="mb-0">
+                                Team Building
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Student Teamwork">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE 9
+            ================================================== -->
+
+            <div class="col-lg-4 col-md-6 gallery-item show-item"
+                 data-category="training">
+
+                <div class="gallery-card">
+
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=85"
+                         alt="Training and preparation"
+                         loading="lazy">
+
+                    <div class="gallery-overlay">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Training Program
+                            </h5>
+
+                            <p class="mb-0">
+                                Preparation & Fitness
+                            </p>
+
+                        </div>
+
+
+                        <button class="btn btn-warning rounded-circle view-image"
+                                data-image="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=90"
+                                data-title="Training Program">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     IMAGE MODAL
+========================================================= -->
+
+<div class="modal fade"
+     id="imageModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+
+        <div class="modal-content bg-dark border-0">
+
+
+            <div class="modal-header border-0">
+
+                <h5 class="modal-title text-white"
+                    id="modalTitle">
+
+                    Gallery Image
+
+                </h5>
+
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+
+            <div class="modal-body text-center p-3">
+
+                <img id="modalImage"
+                     src=""
+                     alt="Gallery Preview"
+                     class="img-fluid rounded">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="py-5 bg-dark text-white text-center">
+
+    <div class="container py-4">
+
+        <i class="bi bi-shield-check text-warning display-5"></i>
+
+        <h2 class="fw-bold mt-3">
+            Want to Join Our Academy?
+        </h2>
+
+        <p class="text-light mt-3">
+            Start your preparation journey with Forces Academy Faisalabad.
+        </p>
+
+        <a href="admissions.html"
+           class="btn btn-warning btn-lg px-5 mt-2">
+
+            <i class="bi bi-person-plus-fill me-2"></i>
+
+            Apply Now
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-black text-white py-4">
+
+    <div class="container">
+
+
+        <div class="row align-items-center">
+
+
+            <div class="col-md-6 text-center text-md-start">
+
+                <h5 class="fw-bold">
+
+                    <i class="bi bi-shield-fill-check me-2"></i>
+
+                    Forces Academy Faisalabad
+
+                </h5>
+
+
+                <p class="text-secondary mb-0">
+
+                    Excellence • Discipline • Success
+
+                </p>
+
+            </div>
+
+
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+
+                <a href="index.html"
+                   class="text-white text-decoration-none me-3">
+
+                    Home
+
+                </a>
+
+
+                <a href="contact.html"
+                   class="text-white text-decoration-none">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary">
+
+
+        <p class="text-center text-secondary mb-0">
+
+            © 2026 Forces Academy Faisalabad.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<!-- =========================================================
+     GALLERY JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   DARK / LIGHT MODE
+========================================================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const themeIcon =
+    document.getElementById("themeIcon");
+
+
+/* Load saved theme */
+
+const savedTheme =
+    localStorage.getItem("academyTheme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    themeIcon.classList.remove("bi-moon-fill");
+
+    themeIcon.classList.add("bi-sun-fill");
+
+}
+
+
+/* Toggle theme */
+
+themeToggle.addEventListener("click", function() {
+
+    document.body.classList.toggle("dark-mode");
+
+
+    const isDark =
+        document.body.classList.contains("dark-mode");
+
+
+    if (isDark) {
+
+        themeIcon.classList.remove("bi-moon-fill");
+
+        themeIcon.classList.add("bi-sun-fill");
+
+        localStorage.setItem(
+            "academyTheme",
+            "dark"
+        );
+
+    } else {
+
+        themeIcon.classList.remove("bi-sun-fill");
+
+        themeIcon.classList.add("bi-moon-fill");
+
+        localStorage.setItem(
+            "academyTheme",
+            "light"
+        );
+
+    }
+
+});
+
+
+
+/* =========================================================
+   GALLERY FILTER
+========================================================= */
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const galleryItems =
+    document.querySelectorAll(".gallery-item");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+
+        const filter =
+            this.getAttribute("data-filter");
+
+
+        /* Change active button */
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+            btn.classList.remove("btn-dark");
+
+            btn.classList.add("btn-outline-dark");
+
+        });
+
+
+        this.classList.add("active");
+
+        this.classList.remove("btn-outline-dark");
+
+        this.classList.add("btn-dark");
+
+
+        /* Filter gallery */
+
+        galleryItems.forEach(item => {
+
+
+            const category =
+                item.getAttribute("data-category");
+
+
+            if (
+                filter === "all" ||
+                category === filter
+            ) {
+
+                item.classList.remove("hide-item");
+
+                item.classList.add("show-item");
+
+            } else {
+
+                item.classList.remove("show-item");
+
+                item.classList.add("hide-item");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+/* =========================================================
+   IMAGE MODAL
+========================================================= */
+
+const imageButtons =
+    document.querySelectorAll(".view-image");
+
+
+const imageModalElement =
+    document.getElementById("imageModal");
+
+
+const imageModal =
+    new bootstrap.Modal(imageModalElement);
+
+
+imageButtons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+
+        const image =
+            this.getAttribute("data-image");
+
+
+        const title =
+            this.getAttribute("data-title");
+
+
+        document.getElementById("modalImage")
+            .src = image;
+
+
+        document.getElementById("modalTitle")
+            .textContent = title;
+
+
+        imageModal.show();
+
+    });
+
+});
+
+
+
+/* =========================================================
+   CLEAR MODAL IMAGE WHEN CLOSED
+========================================================= */
+
+imageModalElement.addEventListener(
+    "hidden.bs.modal",
+    function() {
+
+        document.getElementById("modalImage")
+            .src = "";
+
+    }
+);
+
+
+</script>
+
+
 </body>
+
 </html>
+```

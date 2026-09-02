@@ -1,109 +1,770 @@
-/* ==========================================================================
-   1. HERO & LANDING LAYOUT (Purana Base Code)
-   ========================================================================== */
-#hero {
-    /* Agar images folder mein hero-bg.jpg nahn hai to ye gradient chalega */
-    background-image: linear-gradient(135deg, #0a1f44 0%, #1a3a5b 100%);
-    background-size: cover;
-    background-position: center;
-    min-height: 90vh;
-}
+/* =========================================================
+   FORCES ACADEMY FAISALABAD
+   MAIN STYLESHEET
+   ========================================================= */
 
-.hero-overlay {
-    background: rgba(0, 20, 40, 0.65);
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
+
+/* =========================================================
+   1. GENERAL
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
 }
 
 
-/* ==========================================================================
-   2. WEEK 3 PREMIUM GALLERY & CARDS EFFECTS
-   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
 
-/* Cards rounded corners style */
-.gallery-card {
-    border-radius: 12px !important;
-    border: 1px solid #eef2f5 !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+    background-color: #ffffff;
+    color: #212529;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
-.gallery-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+/* Smooth transition */
+
+body,
+section,
+.card,
+footer,
+.navbar,
+.form-control,
+.form-select,
+textarea,
+.bg-light,
+.bg-white {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-/* Image Dimension Fix (Symmetry alignment) */
-.gallery-img {
-    height: 220px;
-    object-fit: cover; /* Is se sari images perfect auto-crop hokar clean alignment me ayengi */
-    width: 100%;
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+
+#mainNav {
+
+    background-color: #0a1f44;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* Smooth zoom-in scale effect */
-.img-hover {
-    transition: transform 0.4s ease-in-out;
-}
 
-.img-hover:hover {
-    transform: scale(1.08);
-}/* ================= WEEK 6: DARK MODE STYLES ================= */
-body.dark-theme {
-    background-color: #121212 !important;
-    color: #e0e0e0 !important;
-}
+.navbar-brand {
 
-/* Dark mode nav and sections */
-body.dark-theme .navbar {
-    background-color: #1a1a1a !important;
-}
-
-body.dark-theme .nav-link {
     color: #ffffff !important;
+
 }
 
-body.dark-theme .bg-light {
-    background-color: #1e1e1e !important;
+
+.navbar .nav-link {
+
+    color: rgba(255, 255, 255, 0.75) !important;
+
+    transition:
+        color 0.3s ease;
+
 }
 
-body.dark-theme .bg-white {
-    background-color: #242424 !important;
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+
     color: #ffffff !important;
+
 }
 
-body.dark-theme .text-muted,
-body.dark-theme .text-secondary {
-    color: #b0b0b0 !important;
+
+.navbar-toggler {
+
+    border-color:
+        rgba(255, 255, 255, 0.5);
+
 }
 
-body.dark-theme h2, 
-body.dark-theme h5 {
-    color: #ffffff !important;
+
+.navbar-toggler-icon {
+
+    filter:
+        brightness(0)
+        invert(1);
+
 }
 
-/* Dark Mode Toggle Button */
+
+/* =========================================================
+   3. THEME TOGGLE
+   ========================================================= */
+
 #theme-toggle {
+
     width: 40px;
     height: 40px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
-    transition: all 0.3s ease;
+
+    border-radius: 50%;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
 }
 
-/* ================= WEEK 6: ANIMATIONS ================= */
-.animate-fade-in {
-    animation: fadeIn 1.2s ease-in-out forwards;
+
+#theme-toggle:hover {
+
+    transform: scale(1.08);
+
 }
+
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+
+#hero {
+
+    background-image:
+        linear-gradient(
+            135deg,
+            #0a1f44 0%,
+            #1a3a5b 100%
+        );
+
+    background-size: cover;
+
+    background-position: center;
+
+    min-height: 90vh;
+
+}
+
+
+.hero-overlay {
+
+    background:
+        rgba(0, 20, 40, 0.65);
+
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   5. CARDS
+   ========================================================= */
+
+.card {
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   6. GALLERY
+   ========================================================= */
+
+.gallery-card {
+
+    border-radius: 12px !important;
+
+    border:
+        1px solid #eef2f5 !important;
+
+    box-shadow:
+        0 4px 6px
+        rgba(0, 0, 0, 0.05);
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+
+}
+
+
+.gallery-card:hover {
+
+    box-shadow:
+        0 10px 20px
+        rgba(0, 0, 0, 0.12);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.gallery-img {
+
+    height: 220px;
+
+    object-fit: cover;
+
+    width: 100%;
+
+}
+
+
+.img-hover {
+
+    transition:
+        transform 0.4s ease-in-out;
+
+}
+
+
+.img-hover:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* =========================================================
+   7. DARK MODE
+   ========================================================= */
+
+
+/* Main Body */
+
+body.dark-theme {
+
+    background-color:
+        #0f172a !important;
+
+    color:
+        #e5e7eb !important;
+
+}
+
+
+/* All Main Sections */
+
+body.dark-theme section {
+
+    background-color:
+        #0f172a;
+
+    color:
+        #e5e7eb;
+
+}
+
+
+/* Light Sections */
+
+body.dark-theme .bg-light {
+
+    background-color:
+        #111827 !important;
+
+    color:
+        #e5e7eb !important;
+
+}
+
+
+/* White Sections */
+
+body.dark-theme .bg-white {
+
+    background-color:
+        #182233 !important;
+
+    color:
+        #e5e7eb !important;
+
+}
+
+
+/* Dark Sections */
+
+body.dark-theme .bg-dark {
+
+    background-color:
+        #080f1d !important;
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Navbar */
+
+body.dark-theme #mainNav {
+
+    background-color:
+        #080f1d !important;
+
+}
+
+
+/* Navbar links */
+
+body.dark-theme .navbar .nav-link {
+
+    color:
+        rgba(255, 255, 255, 0.8) !important;
+
+}
+
+
+body.dark-theme .navbar .nav-link:hover,
+body.dark-theme .navbar .nav-link.active {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Cards */
+
+body.dark-theme .card {
+
+    background-color:
+        #182233 !important;
+
+    color:
+        #e5e7eb !important;
+
+    border-color:
+        #334155 !important;
+
+}
+
+
+/* Card headings */
+
+body.dark-theme .card h1,
+body.dark-theme .card h2,
+body.dark-theme .card h3,
+body.dark-theme .card h4,
+body.dark-theme .card h5,
+body.dark-theme .card h6 {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* All headings */
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Paragraphs */
+
+body.dark-theme p {
+
+    color:
+        #d1d5db !important;
+
+}
+
+
+/* Text muted */
+
+body.dark-theme .text-muted {
+
+    color:
+        #aeb8c7 !important;
+
+}
+
+
+/* Text secondary */
+
+body.dark-theme .text-secondary {
+
+    color:
+        #cbd5e1 !important;
+
+}
+
+
+/* Text dark */
+
+body.dark-theme .text-dark {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Forms */
+
+body.dark-theme .form-control,
+body.dark-theme .form-select,
+body.dark-theme textarea {
+
+    background-color:
+        #101827 !important;
+
+    color:
+        #ffffff !important;
+
+    border-color:
+        #475569 !important;
+
+}
+
+
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus,
+body.dark-theme textarea:focus {
+
+    background-color:
+        #101827 !important;
+
+    color:
+        #ffffff !important;
+
+    border-color:
+        #fbbf24 !important;
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(251, 191, 36, 0.15);
+
+}
+
+
+body.dark-theme .form-control::placeholder,
+body.dark-theme textarea::placeholder {
+
+    color:
+        #94a3b8 !important;
+
+}
+
+
+body.dark-theme .form-label {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Tables */
+
+body.dark-theme .table {
+
+    --bs-table-color:
+        #e5e7eb;
+
+    --bs-table-bg:
+        #182233;
+
+    --bs-table-border-color:
+        #334155;
+
+}
+
+
+body.dark-theme .table-striped
+> tbody
+> tr:nth-of-type(odd)
+> * {
+
+    color:
+        #e5e7eb !important;
+
+}
+
+
+body.dark-theme .table-hover
+> tbody
+> tr:hover
+> * {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Borders */
+
+body.dark-theme .border {
+
+    border-color:
+        #334155 !important;
+
+}
+
+
+/* Gallery */
+
+body.dark-theme .gallery-card {
+
+    background-color:
+        #182233 !important;
+
+    border-color:
+        #334155 !important;
+
+}
+
+
+/* Links */
+
+body.dark-theme a {
+
+    transition:
+        color 0.3s ease;
+
+}
+
+
+/* Footer */
+
+body.dark-theme footer {
+
+    background-color:
+        #070b12 !important;
+
+}
+
+
+/* Footer links */
+
+body.dark-theme footer a {
+
+    color:
+        #ffffff !important;
+
+}
+
+
+/* Theme button */
+
+body.dark-theme #theme-toggle {
+
+    color:
+        #ffffff !important;
+
+    border-color:
+        #ffffff !important;
+
+}
+
+
+body.dark-theme #theme-toggle:hover {
+
+    background-color:
+        #ffffff !important;
+
+    color:
+        #0a1f44 !important;
+
+}
+
+
+/* =========================================================
+   8. ABOUT IMAGE
+   ========================================================= */
+
+.about-image img {
+
+    width: 100%;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   9. ANIMATIONS
+   ========================================================= */
+
+.animate-fade-in {
+
+    animation:
+        fadeIn 1.2s ease-in-out forwards;
+
+}
+
 
 @keyframes fadeIn {
+
     from {
+
         opacity: 0;
-        transform: translateY(-20px);
+
+        transform:
+            translateY(-20px);
+
     }
+
+
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
+}
+
+
+/* =========================================================
+   10. BACK TO TOP
+   ========================================================= */
+
+#backToTop {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background-color:
+        #0a1f44;
+
+    color:
+        #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 999;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+#backToTop:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+body.dark-theme #backToTop {
+
+    background-color:
+        #fbbf24;
+
+    color:
+        #111827;
+
+}
+
+
+/* =========================================================
+   11. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+
+    #hero,
+    .hero-overlay {
+
+        min-height:
+            75vh;
+
+    }
+
+
+    .gallery-img {
+
+        height:
+            200px;
+
+    }
+
+
+    #backToTop {
+
+        right:
+            15px;
+
+        bottom:
+            15px;
+
+    }
+
+
+    #theme-toggle {
+
+        margin-top:
+            8px;
+
+        margin-bottom:
+            8px;
+
+    }
+
 }

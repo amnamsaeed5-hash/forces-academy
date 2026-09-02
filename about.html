@@ -1,187 +1,812 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Forces Academy Faisalabad</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>About Us | Forces Academy Faisalabad</title>
+
+    <!-- ================= BOOTSTRAP CSS ================= -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- ================= BOOTSTRAP ICONS ================= -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- ================= FONT AWESOME ================= -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ================= GOOGLE FONT ================= -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ================= CUSTOM CSS ================= -->
     <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- =====================================================
+         APPLY SAVED THEME BEFORE PAGE LOAD
+         ===================================================== -->
+    <script>
+        (function () {
+
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+
+                document.documentElement.classList.add("dark-mode");
+
+            }
+
+        })();
+    </script>
+
 </head>
+
+
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Forces Academy</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto align-items-center gap-lg-2">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-warning fw-semibold px-3" href="https://forces-academy-lms.infinityfreeapp.com/">Student Portal</a></li>
-                </ul>
-            </div>
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark sticky-top">
+
+    <div class="container">
+
+
+        <!-- ================= LOGO ================= -->
+
+        <a
+            class="navbar-brand fw-bold"
+            href="index.html">
+
+            <i class="bi bi-shield-fill-check me-2"></i>
+
+            Forces Academy
+
+        </a>
+
+
+        <!-- ================= MOBILE MENU BUTTON ================= -->
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- ================= NAVBAR LINKS ================= -->
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <!-- Home -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <!-- About -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="about.html">
+
+                        About
+
+                    </a>
+
+                </li>
+
+
+                <!-- Courses -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="courses.html">
+
+                        Courses
+
+                    </a>
+
+                </li>
+
+
+                <!-- Admissions -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="admissions.html">
+
+                        Admissions
+
+                    </a>
+
+                </li>
+
+
+                <!-- Results -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="results.html">
+
+                        Results
+
+                    </a>
+
+                </li>
+
+
+                <!-- Gallery -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="gallery.html">
+
+                        Gallery
+
+                    </a>
+
+                </li>
+
+
+                <!-- Contact -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+                <!-- =================================================
+                     DARK / LIGHT MODE BUTTON
+                     ================================================= -->
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                    <button
+                        id="theme-toggle"
+                        type="button"
+                        class="btn btn-sm btn-outline-light"
+                        title="Toggle Dark / Light Mode"
+                        aria-label="Toggle Dark / Light Mode">
+
+                        <i
+                            id="theme-icon"
+                            class="fas fa-moon">
+                        </i>
+
+                    </button>
+
+                </li>
+
+
+                <!-- Student Portal -->
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+
+                    <a
+                        href="admissions.html"
+                        class="btn btn-warning px-4">
+
+                        Student Portal
+
+                    </a>
+
+                </li>
+
+            </ul>
+
         </div>
-    </nav>
 
-    <main class="container my-5">
+    </div>
 
-        <section class="mb-5 text-center text-md-start">
-            <h1 class="fw-bold mb-4" style="color: #0a1f44;">About Forces Academy Faisalabad</h1>
-            <p class="lead text-muted">
-                Forces Academy Faisalabad has a rich history and background of excellence in preparing students for their bright educational and professional futures. Established with a vision to provide top-tier coaching and discipline, we offer specialized entry test preparations, matriculation, and intermediate academic tracks.
-            </p>
-        </section>
+</nav>
 
-        <hr class="my-5">
 
-        <section class="mb-5">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="p-4 border rounded shadow-sm bg-light h-100">
-                        <h3 class="fw-bold text-success mb-3"><i class="fas fa-bullseye me-2"></i>Our Mission</h3>
-                        <p class="text-secondary">
-                            Our mission is to empower students with high-quality education, modern learning techniques, and rigorous training. We aim to foster a disciplined environment that enables every student from Faisalabad and beyond to achieve top grades and successfully clear professional entrance exams.
-                        </p>
+<!-- =====================================================
+     PAGE HEADER
+     ===================================================== -->
+
+<section class="py-5 bg-dark text-white text-center">
+
+    <div class="container py-4">
+
+        <h1 class="display-4 fw-bold">
+
+            About Forces Academy
+
+        </h1>
+
+        <p class="lead mt-3 mb-0">
+
+            Building discipline, confidence and academic excellence.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT SECTION
+     ===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- ================= ONLINE IMAGE ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="about-image position-relative">
+
+                    <img
+                        src="https://www.kskccs.edu.pk/uploads/Academic/Class%202.webp"
+                        alt="Cadet Classroom Training"
+                        class="img-fluid rounded-4 shadow w-100"
+                        style="height: 420px; object-fit: cover;">
+
+                    <!-- Image Badge -->
+
+                    <div
+                        class="position-absolute bottom-0 start-0 m-3 bg-dark text-white px-3 py-2 rounded-3 shadow">
+
+                        <i class="bi bi-mortarboard-fill text-warning me-2"></i>
+
+                        Academic &amp; Training Environment
+
                     </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="p-4 border rounded shadow-sm bg-light h-100">
-                        <h3 class="fw-bold text-info mb-3"><i class="fas fa-eye me-2"></i>Our Vision</h3>
-                        <p class="text-secondary">
-                            To become the leading educational institute in the region, recognized for transforming ambitious students into future leaders, professionals, and responsible citizens through academic dedication and character building.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <hr class="my-5">
-
-        <section class="mb-5">
-            <h2 class="fw-bold text-center mb-4" style="color: #0a1f44;">Why Choose Us</h2>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm text-center border-0 bg-light">
-                        <div class="card-body">
-                            <div class="text-primary mb-3"><i class="fas fa-shield-halved fa-2x"></i></div>
-                            <h5 class="card-title fw-bold">Strict Discipline</h5>
-                            <p class="card-text text-muted small">We maintain an environment focused on character building and complete professional ethics.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm text-center border-0 bg-light">
-                        <div class="card-body">
-                            <div class="text-success mb-3"><i class="fas fa-user-tie fa-2x"></i></div>
-                            <h5 class="card-title fw-bold">Qualified Faculty</h5>
-                            <p class="card-text text-muted small">Learn from highly experienced teachers and subject specialists who guide you at every step.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm text-center border-0 bg-light">
-                        <div class="card-body">
-                            <div class="text-warning mb-3"><i class="fas fa-trophy fa-2x"></i></div>
-                            <h5 class="card-title fw-bold">Proven Results</h5>
-                            <p class="card-text text-muted small">Our students consistently secure top positions in board exams and university entrance tests.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm text-center border-0 bg-light">
-                        <div class="card-body">
-                            <div class="text-danger mb-3"><i class="fas fa-school fa-2x"></i></div>
-                            <h5 class="card-title fw-bold">Modern Facilities</h5>
-                            <p class="card-text text-muted small">Equipped classrooms, computer labs, and a peaceful environment optimized for modern learning.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="my-5">
-
-        <section class="mb-5">
-            <h2 class="fw-bold text-center mb-4" style="color: #0a1f44;">Our Leadership Team</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm">
-                        <div class="bg-secondary text-white py-5 rounded-top">
-                            <i class="fas fa-user-circle fa-4x"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold m-0">Director Name</h5>
-                            <p class="text-primary small">Managing Director</p>
-                            <p class="card-text text-muted small">Leading the institution with vision and academic excellence.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 text-center shadow-sm">
-                        <div class="bg-secondary text-white py-5 rounded-top">
-                            <i class="fas fa-user-circle fa-4x"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold m-0">Principal Name</h5>
-                            <p class="text-success small">Academic Principal</p>
-                            <p class="card-text text-muted small">Ensuring high-quality educational standards and discipline daily.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-dark text-white pt-5 pb-4">
-        <div class="container text-center text-md-start">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Forces Academy</h5>
-                    <p>Providing quality education and training to shape your bright future.</p>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
-                    <p><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></p>
-                    <p><a href="about.html" class="text-white" style="text-decoration: none;">About Us</a></p>
-                    <p><a href="courses.html" class="text-white" style="text-decoration: none;">Courses</a></p>
-                    <p><a href="admissions.html" class="text-white" style="text-decoration: none;">Admissions</a></p>
-                </div>
-
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
-                    <p><i class="fas fa-home mr-3"></i> Faisalabad, Pakistan</p>
-                    <p><i class="fas fa-envelope mr-3"></i> info@forcesacademy.com</p>
-                    <p><i class="fas fa-phone mr-3"></i> +92 300 0000000</p>
-                </div>
             </div>
 
-            <hr class="mb-4">
 
-            <div class="row align-items-center">
-                <div class="col-md-7 col-lg-8">
-                    <p>© 2026 Copyright All rights reserved by: 
-                        <a href="#" style="text-decoration: none;"><strong class="text-warning">Forces Academy Faisalabad</strong></a>
+            <!-- ================= CONTENT ================= -->
+
+            <div class="col-lg-6">
+
+                <span class="text-warning fw-semibold">
+
+                    ABOUT OUR ACADEMY
+
+                </span>
+
+
+                <h2 class="fw-bold mt-2 mb-4">
+
+                    Preparing Students for a Successful Future
+
+                </h2>
+
+
+                <p class="text-muted">
+
+                    Forces Academy Faisalabad is committed to providing
+                    quality education and professional guidance to students
+                    who aim to achieve excellence in their academic and
+                    professional careers.
+
+                </p>
+
+
+                <p class="text-muted">
+
+                    Our academy focuses on academic preparation, discipline,
+                    confidence building and personal development. We provide
+                    students with a supportive learning environment where
+                    they can improve their knowledge and develop the skills
+                    required for competitive examinations.
+
+                </p>
+
+
+                <!-- ================= FEATURES ================= -->
+
+                <div class="row mt-4">
+
+
+                    <!-- Feature 1 -->
+
+                    <div class="col-sm-6 mb-3">
+
+                        <div class="d-flex align-items-center">
+
+                            <i class="bi bi-check-circle-fill text-warning fs-4 me-3"></i>
+
+                            <span>
+
+                                Experienced Faculty
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Feature 2 -->
+
+                    <div class="col-sm-6 mb-3">
+
+                        <div class="d-flex align-items-center">
+
+                            <i class="bi bi-check-circle-fill text-warning fs-4 me-3"></i>
+
+                            <span>
+
+                                Quality Education
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Feature 3 -->
+
+                    <div class="col-sm-6 mb-3">
+
+                        <div class="d-flex align-items-center">
+
+                            <i class="bi bi-check-circle-fill text-warning fs-4 me-3"></i>
+
+                            <span>
+
+                                Regular Assessments
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Feature 4 -->
+
+                    <div class="col-sm-6 mb-3">
+
+                        <div class="d-flex align-items-center">
+
+                            <i class="bi bi-check-circle-fill text-warning fs-4 me-3"></i>
+
+                            <span>
+
+                                Student Guidance
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MISSION & VISION
+     ===================================================== -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+
+        <!-- Heading -->
+
+        <div class="text-center mb-5">
+
+            <span class="text-warning fw-semibold">
+
+                WHAT WE BELIEVE
+
+            </span>
+
+            <h2 class="fw-bold mt-2">
+
+                Our Mission &amp; Vision
+
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- ================= MISSION ================= -->
+
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                    <div class="icon-box mb-3">
+
+                        <i class="bi bi-bullseye fs-2 text-warning"></i>
+
+                    </div>
+
+
+                    <h3 class="fw-bold">
+
+                        Our Mission
+
+                    </h3>
+
+
+                    <p class="text-muted mb-0">
+
+                        Our mission is to provide students with quality
+                        education, proper guidance and a disciplined
+                        environment that helps them prepare confidently
+                        for academic and competitive examinations.
+
                     </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+                </div>
+
+            </div>
+
+
+            <!-- ================= VISION ================= -->
+
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+
+                    <div class="icon-box mb-3">
+
+                        <i class="bi bi-eye-fill fs-2 text-warning"></i>
+
+                    </div>
+
+
+                    <h3 class="fw-bold">
+
+                        Our Vision
+
+                    </h3>
+
+
+                    <p class="text-muted mb-0">
+
+                        Our vision is to become a trusted educational
+                        platform where students develop knowledge,
+                        confidence, leadership qualities and the discipline
+                        needed to build a successful future.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+     ===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="text-warning fw-semibold">
+
+                WHY CHOOSE US
+
+            </span>
+
+            <h2 class="fw-bold mt-2">
+
+                Why Students Choose Forces Academy
+
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Feature 1 -->
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <div class="mb-3">
+
+                        <i class="bi bi-person-workspace display-5 text-warning"></i>
+
+                    </div>
+
+
+                    <h4 class="fw-bold">
+
+                        Expert Guidance
+
+                    </h4>
+
+
+                    <p class="text-muted">
+
+                        Students receive guidance and support throughout
+                        their academic preparation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <div class="mb-3">
+
+                        <i class="bi bi-journal-check display-5 text-warning"></i>
+
+                    </div>
+
+
+                    <h4 class="fw-bold">
+
+                        Regular Testing
+
+                    </h4>
+
+
+                    <p class="text-muted">
+
+                        Regular tests and assessments help students
+                        understand their progress and improve their
+                        performance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <div class="mb-3">
+
+                        <i class="bi bi-people-fill display-5 text-warning"></i>
+
+                    </div>
+
+
+                    <h4 class="fw-bold">
+
+                        Supportive Environment
+
+                    </h4>
+
+
+                    <p class="text-muted">
+
+                        We aim to create a positive and disciplined
+                        learning environment for every student.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="py-5 bg-dark text-white text-center">
+
+    <div class="container py-4">
+
+        <h2 class="fw-bold">
+
+            Ready to Start Your Journey?
+
+        </h2>
+
+
+        <p class="text-light mt-3">
+
+            Explore our courses and take the next step toward your goals.
+
+        </p>
+
+
+        <a
+            href="courses.html"
+            class="btn btn-warning btn-lg px-5 mt-2">
+
+            Explore Courses
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="bg-black text-white py-4">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <!-- Academy Info -->
+
+            <div class="col-md-6 text-center text-md-start">
+
+                <h5 class="fw-bold">
+
+                    <i class="bi bi-shield-fill-check me-2"></i>
+
+                    Forces Academy Faisalabad
+
+                </h5>
+
+
+                <p class="text-secondary mb-0">
+
+                    Excellence • Discipline • Success
+
+                </p>
+
+            </div>
+
+
+            <!-- Footer Links -->
+
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+
+                <a
+                    href="index.html"
+                    class="text-white text-decoration-none me-3">
+
+                    Home
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="text-white text-decoration-none">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary">
+
+
+        <p class="text-center text-secondary mb-0">
+
+            © 2026 Forces Academy Faisalabad. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+     ===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =====================================================
+     CUSTOM JS
+     ===================================================== -->
+
+<script src="js/main.js"></script>
+
+
 </body>
+
 </html>
