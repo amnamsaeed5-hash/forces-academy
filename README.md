@@ -55,3 +55,27 @@
 1. **Repository Clone Karein:**
    ```bash
    git clone [https://github.com/amnamsaeed5-hash/forces-academy.git](https://github.com/amnamsaeed5-hash/forces-academy.git)
+   ---
+
+<div align="center">
+
+Built with ❤️ by **Amna Saeed** | **Code Saviours SI-26** | **2026**  
+*Roll No:* `SI26-WD-AS-028`
+
+</div>
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](Home.png)
+
+### ℹ️ About Page
+![About Page](About.png)
+
+### 📚 Courses Page
+![Courses Page](Courses.png)
+
+### 🎓 Admissions Page
+![Admissions Page](Admissions.png)
+
+### 📊 Results Page
+![Results Page](Result.png)
